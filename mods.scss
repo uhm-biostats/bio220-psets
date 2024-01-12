@@ -1,0 +1,8 @@
+/*-- scss:rules --*/
+.chapter-number::before {
+  content: "Problem set ";
+}
+
+.chapter-number::after {
+  content: ":";
+}

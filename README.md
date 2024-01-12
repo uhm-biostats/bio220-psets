@@ -1,2 +1,2 @@
-# bio220-psets
-Problem sets for BIOL 220
+# biol220-labs
+Collection of labs for BIOL 220

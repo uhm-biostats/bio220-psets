@@ -1,0 +1,26 @@
+project:
+  type: book
+  output-dir: docs
+
+
+book:
+  title: "Problem Sets for Intro Biostatistics"
+  author: "Mike Whitlock (original material), Chris Muir (modifications), Andy Rominger (modifications and web design), Renata Diaz (web design)"
+  date: "12/20/2023"
+  chapters:
+    - index.qmd
+    - pset01.qmd
+comments:
+  hypothesis: true
+
+
+bibliography: references.bib
+
+
+format:
+  html:
+    theme: 
+      - cosmo
+      - mods.scss
+
+
