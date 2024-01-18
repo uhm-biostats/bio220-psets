@@ -6,7 +6,7 @@
 
 ## Fix this graph! {.unnumbered}
 
-Consider the graphic below from a recent article in *Science* by the Cenozoic CO2 Proxy Integration Project Consortium. The data visualization attempts to show complex data about the change in atmospheric CO2 and average global temperature over the past approximately 65 million years.
+Consider the graphic below from a recent [article in *Science* by the Cenozoic CO2 Proxy Integration Project Consortium](https://www.science.org/doi/10.1126/science.adi5177). The data visualization attempts to show complex data about the change in atmospheric CO2 and average global temperature over the past approximately 65 million years.
 
 ![](img/cenozoic_co2.png)
 
@@ -18,141 +18,136 @@ Hints: on the legend for the color scale, where is 0? Look closely at the tick m
 1. Identify two instances in which this graphic violates the data visualization rules from Whitlock and Schluter's textbook. There are multiple possible answers. [2 points]
 
 2. For each of those two violations, suggest a remedy to improve it. [2 points]
+:::
+
+## Interpreting figures {.unnumbered}
+
+Consider a situation in which bacterial swabs were taken from the ears and noses of 50 study subjects, and the number of swabs that showed the presence of *Staphylococcus* were measured. The table below shows the results of the measurements. 
+
+```{r, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE}
+library(dplyr)
+library(ggplot2)
+library(ggmosaic)
+library(cowplot)
+library(knitr)
+library(kableExtra)
+
+
+df1 <- data.frame(body_part = rep(c("Ear", "Nose"), each = 50),
+                  present = factor(rep(c("Yes", "No", "Yes", "No"), 
+                                       c(40, 10, 28, 22)),
+                                   levels = c("Yes", "No")))
+
+# knitr::kable()
+
+# knitr::kable(table(df1), format = "pipe")
+
+
+table(df1) |> 
+    kable(table.attr = 'data-quarto-disable-processing="true"') |>
+    kable_styling(bootstrap_options = c("basic", "hover"), 
+                  full_width = FALSE)
+
+```
+
+
+
+:::  {.callout-tip}
+
+## Use the information in the above table to answer question 3.
+
+3. Which of the plots shown below (**A**, **B**, **C**, or **D**) correctly depicts the *Staphylococcus* swab data? [1 point]
+
+
+```{r, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, fig.width = 5, fig.align = 'center', fig.height = 5}
+
+df2 <- data.frame(body_part = rep(c("Ear", "Nose"), each = 50),
+                  present = factor(rep(c("Yes", "No", "Yes", "No"), 
+                                       c(35, 15, 30, 20)),
+                                   levels = c("Yes", "No")))
+
+df3 <- data.frame(body_part = rep(c("Ear", "Nose"), each = 50),
+                  present = factor(rep(c("No", "Yes", "No", "Yes"), 
+                                       c(40, 10, 28, 22)),
+                                   levels = c("Yes", "No")))
+
+df4 <- data.frame(body_part = rep(c("Ear", "Nose"), each = 50),
+                  present = factor(rep(c("No", "Yes", "No", "Yes"), 
+                                       c(35, 15, 30, 20)),
+                     levels = c("Yes", "No")))
+
+dfAll <- rbind(cbind(g = "A", df1),
+               cbind(g = "B", df2),
+               cbind(g = "C", df3),
+               cbind(g = "D", df4))
+dfAll$g <- as.factor(dfAll$g)
+
+
+ggplot(data = dfAll) +
+    geom_mosaic(aes(x = product(body_part), fill = present)) +
+    facet_wrap(facets = dfAll$g) +
+    scale_fill_viridis_d() +
+    theme_bw() +
+    scale_y_continuous(breaks = seq(0, 1, 0.2)) +
+    theme(axis.text = element_text(size = 16),
+          # axis.ticks.y.left = element_line(),
+          strip.text = element_text(size = 22, face = "bold"),
+          legend.text = element_text(size = 16),
+          axis.title = element_blank(),
+          panel.grid = element_blank(),
+          title = element_text(size = 20, face = "bold"))
+```
+
 
 :::
 
 
+## Making graphics {.unnumbered}
 
+:::  {.callout-tip}
+## Draw a graph by hand!
 
+4. Sketch out a histogram (with 5 bins of equal size as appropriate) showing the distribution of the following values: 
 
+    `2, 3, 3, 4, 5, 7, 8, 8, 11, 11, 12, 13, 15, 15, 17, 18, 18, 23, 24, 32, 33, 34, 35, 38, 41, 42, 43, 48`
 
-
-
-
-::: {.callout-tip}
-## Populations, estimates, sources of variation
-
-1. In one or two sentences, what is the difference between a sample and a population? [1 point]
-
-2. If you're trying to study differences in species richness across locations, taxonomic misidentification can occur, what category of error or source of variation is this? [0.5 point]
-    - Bad luck
-    - Random variation
-    - Scientific 
-    - Measurement error
-
-3. What/which is an estimate (choose all that apply)? [0.5 point]
-    - The way we test a hypothesis
-    - A property of a population
-    - A statistic calculated from a sample
-    - A best guess of the value of a parameter
-    - The average body mass of 20 Kōlea birds
+    You should draw a good, honest, clear histogram BY HAND either on paper or digitally, then submit your graphic by uploading it via the Google Form [2 points].
 
 :::
 
-## Random sampling for a clinical trial {.unnumbered}
+Now that you've suffered through making a graph by hand, isn't nice to be able to use a computer for this kind of task!  Now you'll fix some *ggplot2* code to improve the quality of the below figure:
 
-Suppose you are designing a clinical trial for a new drug and you have enough budget to afford a trial with 100 participants randomly selected from the total (finite) population of adults living in the fictional country of El Dorado. Assume no one is added or subtracted (dies) from the population during sampling. El Dorado is divided into 10 regions that vary widely in their population size. To randomly select participants, you are given a list of all living adults in El Dorado arranged by Region and alphabetically by surname (last name) within Region like this:
+```{r, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, fig.width = 5, fig.align = 'center', fig.height = 4}
 
- Region | Name        | ID Number |
---------|-------------|-----------|
- A      | Aaronson, A | 1         |
- $\vdots$ | $\vdots$  | $\vdots$  |
- A      | Zykowski, Z | 65184     |
- B      | Aaronson, A | 65185     |
- $\vdots$ | $\vdots$  | $\vdots$  |
- B      | Zykowski, Z | 187706    |
- C      | Aaronson, A | 187707    |
- $\vdots$ | $\vdots$  | $\vdots$  |
- C      | Zykowski, Z | 245906    |
+ggplot(iris, aes(Sepal.Length, Petal.Length, color = Species)) +
+    geom_point()
+```
 
-Each adult also has unique ID Number determined by their Region and Name.
+This is (approximately) the same figure of different iris species used in your textbook and that we used as an example in lecture.
 
-::: {.callout-tip}
-## Consider the following four sampling procedures to select participants, then answer questions 3 & 4.
+:::  {.callout-tip}
+## Improve this figure!
 
-> A. Choose the first 100 individuals in the list </br>
-> B. Choose the first 10 individuals from each Region </br>
-> C. Use a random number generator to select 10 ID Numbers from each region </br>
-> D. Use a random number generator to select 100 ID Numbers from the country population
+Here is the code needed to produce the above visualization of the iris data:
 
-4. Which of the sampling procedures (A, B, C, or D) is most likely to produce a *biased* estimate of the true population response to the drug? [1 point]
+```{r, echo = TRUE, eval = FALSE}
 
-4. After starting the trial on participants, you learn that a technician accidentally used a nonrandom sampling procedure that is likely to bias your estimate. The technician suggests that you ask for more funding to increase the sample size to 200 while continuing to use the same biased sampling procedure. If you adopt their suggestion, what is most likely true about the resulting estimate from the sample of 200? [1 point]
+# note: the `iris` dataset is pre-loaded in R, we don't need to read it in
+ggplot(iris, aes(Sepal.Length, Petal.Length, color = Species)) +
+    geom_point()
+```
 
-    - More precise and less biased
-    - More precise and equally biased
-    - Less precise and less biased
-    - Less precise and equally biased
+5. [3 points] Choose two aspects of the iris data plot that you think should be improved. Then starting with the above code, add to it with additional commands to realize the improvements you'd like to make.
 
+    To turn in your answer for this question simply paste your final code into the google form. Include comments in your code explaining (briefly) what you chose to improve and why, e.g. (these are *not* good changes to make):
+    
+    ```r
+    # 1. Change the colors to rainbow because go bows!
+    # 2. Change the points to diamonds because why not!
+    
+    ggplot(iris, ..... 
+        ....
+        ....
+        ....
+    ```
 :::
-
-## Randomly assign individuals to "treatments" {.unnumbered}
-
-::: {.callout-tip}
-## Randomly assign students to project groups.
-
-6. [2 points] As discussed in the Syllabus, the Group Project is a major part of this class. All students in your section will be divided into groups of 4 to 5 students each. For this activity, you will **randomly assign students to groups**. Each student must be assigned to one and only one group. Use the list of student names from the letter frequency activity on Google Classroom to answer this question. You can use any method you want to assign groups, as long as it is truly random. You need to upload your work to show how your randomization procedure works. This could be any of the following: 
-    * a scanned piece of paper showing randomization
-    * a Google Sheet/Doc with randomization procedure
-    * a short video describing and showing your randomization procedure
-    * an *R* script
-    * something else, as long as it's clear what you did. 
-
-    **You cannot just send the name of students in each group; you must show your randomization procedure.**
-:::
-
-## Fix this spreadsheet! {.unnumbered}
-
-The spreadsheet below is a small portion of an actual data set used in an analysis of speciation in fruit flies (*Drosophila* sp.).
-
-![](img/ps01-q08.png)
-
-::: {.callout-tip}
-## Fix this spreadsheet!
-
-7. [3 points] Use the principles outlined in the reading by Broman & Woo (2018) to organize these data properly into a spreadsheet. Download the spreadsheet using the link below and save a copy replacing "STUDENTID" with your student ID.
-
-<https://docs.google.com/spreadsheets/d/1aGafJe2EGqgICUdLhDxfL4eEM_fK0yK6/edit?usp=sharing&ouid=112071956568067162902&rtpof=true&sd=true>
-
-You should put the organized data into a spreadsheet under the "fixed" sheet. When you're done, upload the file using the form in Google Classroom.
-
- * Consistent codes for categorical variables
- * Uses `NA` for missing data where applicable
- * Consistent variable names
- * Consistent subject identifiers
- * Dates written in YYYY-MM-DD format
- * No leading or trailing white space
- * No empty cells
- * One item per cell
- * Data are rectangular
- * No calculations in raw data file
- * No font color or highlighting as data
-
-Note that not all criteria necessarily apply to these data and some criteria may already be met and do not need to be fixed. Here is some helpful information about the variables:
-
-* `Sp 1` and `Sp 2` are species names for some fruit flies in the genus *Drosophila*
-* `allop.` means that species 1 and 2 are allopatric (no range overlap)
-* `symp.` means that species 1 and 2 are sympatric (some range overlap)
-* `Nei's D` is a measure of genetic distance. Greater distance means there are more genetic differences between species
-* `Premating Isol.` is the amount of premating reproductive isolation between species (0 is low, 1 is high)
-* `Postz. hybrid fitness` is the postzygotic hybrid fitness. Are hybrids fertile, sterile, or none (hybrids not formed because species never mate)
-
-
-
-8a. Which of the following is a *categorical* variable?
-
-8b. Which of the following is a *numerical* variable?
-
-8c. Which of the following is a *ordinal* variable?
-
-- `Sp 1`
-- `allop. = 0 / symp. = 1`
-- `Genetic Distance (Nei's D)`
-- `Postz. hybrid fitness`
-
-
-
-Question 8a-c is worth [1] point in total.
-
-:::
-
