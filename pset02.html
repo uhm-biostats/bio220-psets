@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Problem Sets for Intro Biostatistics - 1&nbsp; Biostatistics basics</title>
+<title>Problem Sets for Intro Biostatistics - 2&nbsp; Graphics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./pset02.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./pset01.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,8 +96,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 </head>
 
@@ -77,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset01.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Biostatistics basics</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphics</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -110,13 +144,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset01.html" class="sidebar-item-text sidebar-link active">
+  <a href="./pset01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Biostatistics basics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset02.html" class="sidebar-item-text sidebar-link">
+  <a href="./pset02.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphics</span></span></a>
   </div>
 </li>
@@ -130,10 +164,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#populations-estimates-sources-of-variation" id="toc-populations-estimates-sources-of-variation" class="nav-link active" data-scroll-target="#populations-estimates-sources-of-variation">Populations, estimates, sources of variation</a></li>
-  <li><a href="#random-sampling-for-a-clinical-trial" id="toc-random-sampling-for-a-clinical-trial" class="nav-link" data-scroll-target="#random-sampling-for-a-clinical-trial">Random sampling for a clinical trial</a></li>
-  <li><a href="#randomly-assign-individuals-to-treatments" id="toc-randomly-assign-individuals-to-treatments" class="nav-link" data-scroll-target="#randomly-assign-individuals-to-treatments">Randomly assign individuals to “treatments”</a></li>
-  <li><a href="#fix-this-spreadsheet" id="toc-fix-this-spreadsheet" class="nav-link" data-scroll-target="#fix-this-spreadsheet">Fix this spreadsheet!</a></li>
+  <li><a href="#fix-this-graph" id="toc-fix-this-graph" class="nav-link active" data-scroll-target="#fix-this-graph">Fix this graph!</a></li>
+  <li><a href="#interpreting-figures" id="toc-interpreting-figures" class="nav-link" data-scroll-target="#interpreting-figures">Interpreting figures</a></li>
+  <li><a href="#making-graphics" id="toc-making-graphics" class="nav-link" data-scroll-target="#making-graphics">Making graphics</a></li>
   </ul>
 </nav>
     </div>
@@ -142,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Biostatistics basics</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphics</span></h1>
 </div>
 
 
@@ -157,204 +190,142 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><strong>Due Thursday, Jan 18, 2024 before lecture</strong></p>
+<p><strong>Due Thursday, Jan 25, 2024 before lecture</strong></p>
 <p><strong>Submit your answers via Google Classroom</strong></p>
-<section id="populations-estimates-sources-of-variation" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="populations-estimates-sources-of-variation">Populations, estimates, sources of variation</h2>
+<section id="fix-this-graph" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="fix-this-graph">Fix this graph!</h2>
+<p>Consider the graphic below from a recent <a href="https://www.science.org/doi/10.1126/science.adi5177">article in <em>Science</em> by the Cenozoic CO2 Proxy Integration Project Consortium</a>. The data visualization attempts to show complex data about the change in atmospheric CO2 and average global temperature over the past approximately 65 million years.</p>
+<p><img src="img/cenozoic_co2.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Populations, estimates, sources of variation
+Use the figure above to answer questions 1 &amp; 2.
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Hints: on the legend for the color scale, where is 0? Look closely at the tick marks of the axes. What <em>messages</em> do the authors want to communicate about these data; what are the patterns they’re trying to show? Do they achieve their goals?</p>
 <ol type="1">
-<li><p>In one or two sentences, what is the difference between a sample and a population? [1 point]</p></li>
-<li><p>If you’re trying to study differences in species richness across locations, taxonomic misidentification can occur, what category of error or source of variation is this? [0.5 point]</p>
-<ul>
-<li>Bad luck</li>
-<li>Random variation</li>
-<li>Scientific</li>
-<li>Measurement error</li>
-</ul></li>
-<li><p>What/which is an estimate (choose all that apply)? [0.5 point]</p>
-<ul>
-<li>The way we test a hypothesis</li>
-<li>A property of a population</li>
-<li>A statistic calculated from a sample</li>
-<li>A best guess of the value of a parameter</li>
-<li>The average body mass of 20 Kōlea birds</li>
-</ul></li>
+<li><p>Identify two instances in which this graphic violates the data visualization rules from Whitlock and Schluter’s textbook. There are multiple possible answers. [2 points]</p></li>
+<li><p>For each of those two violations, suggest a remedy to improve it. [2 points]</p></li>
 </ol>
 </div>
 </div>
 </section>
-<section id="random-sampling-for-a-clinical-trial" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="random-sampling-for-a-clinical-trial">Random sampling for a clinical trial</h2>
-<p>Suppose you are designing a clinical trial for a new drug and you have enough budget to afford a trial with 100 participants randomly selected from the total (finite) population of adults living in the fictional country of El Dorado. Assume no one is added or subtracted (dies) from the population during sampling. El Dorado is divided into 10 regions that vary widely in their population size. To randomly select participants, you are given a list of all living adults in El Dorado arranged by Region and alphabetically by surname (last name) within Region like this:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Region</th>
-<th>Name</th>
-<th>ID Number</th>
-</tr>
-</thead>
+<section id="interpreting-figures" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="interpreting-figures">Interpreting figures</h2>
+<p>Consider a situation in which bacterial swabs were taken from the ears and noses of 50 study subjects, and the number of swabs that showed the presence of <em>Staphylococcus</em> were measured. The table below shows the results of the measurements.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table data-quarto-disable-processing="true" class="table table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Yes </th>
+   <th style="text-align:right;"> No </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td>A</td>
-<td>Aaronson, A</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\vdots\)</span></td>
-<td><span class="math inline">\(\vdots\)</span></td>
-<td><span class="math inline">\(\vdots\)</span></td>
-</tr>
-<tr class="odd">
-<td>A</td>
-<td>Zykowski, Z</td>
-<td>65184</td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td>Aaronson, A</td>
-<td>65185</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\vdots\)</span></td>
-<td><span class="math inline">\(\vdots\)</span></td>
-<td><span class="math inline">\(\vdots\)</span></td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td>Zykowski, Z</td>
-<td>187706</td>
-</tr>
-<tr class="odd">
-<td>C</td>
-<td>Aaronson, A</td>
-<td>187707</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\vdots\)</span></td>
-<td><span class="math inline">\(\vdots\)</span></td>
-<td><span class="math inline">\(\vdots\)</span></td>
-</tr>
-<tr class="odd">
-<td>C</td>
-<td>Zykowski, Z</td>
-<td>245906</td>
-</tr>
+  <tr>
+   <td style="text-align:left;"> Ear </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nose </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 22 </td>
+  </tr>
 </tbody>
 </table>
-<p>Each adult also has unique ID Number determined by their Region and Name.</p>
+
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Consider the following four sampling procedures to select participants, then answer questions 3 &amp; 4.
+Use the information in the above table to answer question 3.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<blockquote class="blockquote">
-<p>A. Choose the first 100 individuals in the list <br> B. Choose the first 10 individuals from each Region <br> C. Use a random number generator to select 10 ID Numbers from each region <br> D. Use a random number generator to select 100 ID Numbers from the country population</p>
-</blockquote>
+<ol start="3" type="1">
+<li>Which of the plots shown below (<strong>A</strong>, <strong>B</strong>, <strong>C</strong>, or <strong>D</strong>) correctly depicts the <em>Staphylococcus</em> swab data? [1 point]</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pset02_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="making-graphics" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="making-graphics">Making graphics</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Draw a graph by hand!
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol start="4" type="1">
-<li><p>Which of the sampling procedures (A, B, C, or D) is most likely to produce a <em>biased</em> estimate of the true population response to the drug? [1 point]</p></li>
-<li><p>After starting the trial on participants, you learn that a technician accidentally used a nonrandom sampling procedure that is likely to bias your estimate. The technician suggests that you ask for more funding to increase the sample size to 200 while continuing to use the same biased sampling procedure. If you adopt their suggestion, what is most likely true about the resulting estimate from the sample of 200? [1 point]</p>
-<ul>
-<li>More precise and less biased</li>
-<li>More precise and equally biased</li>
-<li>Less precise and less biased</li>
-<li>Less precise and equally biased</li>
-</ul></li>
+<li><p>Sketch out a histogram (with 5 bins of equal size as appropriate) showing the distribution of the following values:</p>
+<p><code>2, 3, 3, 4, 5, 7, 8, 8, 11, 11, 12, 13, 15, 15, 17, 18, 18, 23, 24, 32, 33, 34, 35, 38, 41, 42, 43, 48</code></p>
+<p>You should draw a good, honest, clear histogram BY HAND either on paper or digitally, then submit your graphic by uploading it via the Google Form [2 points].</p></li>
 </ol>
 </div>
 </div>
-</section>
-<section id="randomly-assign-individuals-to-treatments" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="randomly-assign-individuals-to-treatments">Randomly assign individuals to “treatments”</h2>
+<p>Now that you’ve suffered through making a graph by hand, isn’t nice to be able to use a computer for this kind of task! Now you’ll fix some <em>ggplot2</em> code to improve the quality of the below figure:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pset02_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This is (approximately) the same figure of different iris species used in your textbook and that we used as an example in lecture.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Randomly assign students to project groups.
+Improve this figure!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol start="6" type="1">
-<li>[2 points] As discussed in the Syllabus, the Group Project is a major part of this class. All students in your section will be divided into groups of 4 to 5 students each. For this activity, you will <strong>randomly assign students to groups</strong>. Each student must be assigned to one and only one group. Use the list of student names from the letter frequency activity on Google Classroom to answer this question. You can use any method you want to assign groups, as long as it is truly random. You need to upload your work to show how your randomization procedure works. This could be any of the following:
-<ul>
-<li>a scanned piece of paper showing randomization</li>
-<li>a Google Sheet/Doc with randomization procedure</li>
-<li>a short video describing and showing your randomization procedure</li>
-<li>an <em>R</em> script</li>
-<li>something else, as long as it’s clear what you did.</li>
-</ul>
-<strong>You cannot just send the name of students in each group; you must show your randomization procedure.</strong></li>
+<p>Here is the code needed to produce the above visualization of the iris data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note: the `iris` dataset is pre-loaded in R, we don't need to read it in</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li><p>[3 points] Choose two aspects of the iris data plot that you think should be improved. Then starting with the above code, add to it with additional commands to realize the improvements you’d like to make.</p>
+<p>To turn in your answer for this question simply paste your final code into the google form. Include comments in your code explaining (briefly) what you chose to improve and why, e.g.&nbsp;(these are <em>not</em> good changes to make):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Change the colors to rainbow because go bows!</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Change the points to diamonds because why not!</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, ..... </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    ....</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    ....</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    ....</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-</div>
-</div>
-</section>
-<section id="fix-this-spreadsheet" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="fix-this-spreadsheet">Fix this spreadsheet!</h2>
-<p>The spreadsheet below is a small portion of an actual data set used in an analysis of speciation in fruit flies (<em>Drosophila</em> sp.).</p>
-<p><img src="img/ps01-q08.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Fix this spreadsheet!
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol start="7" type="1">
-<li>[3 points] Use the principles outlined in the reading by Broman &amp; Woo (2018) to organize these data properly into a spreadsheet. Download the spreadsheet using the link below and save a copy replacing “STUDENTID” with your student ID.</li>
-</ol>
-<p><a href="https://docs.google.com/spreadsheets/d/1aGafJe2EGqgICUdLhDxfL4eEM_fK0yK6/edit?usp=sharing&amp;ouid=112071956568067162902&amp;rtpof=true&amp;sd=true" class="uri">https://docs.google.com/spreadsheets/d/1aGafJe2EGqgICUdLhDxfL4eEM_fK0yK6/edit?usp=sharing&amp;ouid=112071956568067162902&amp;rtpof=true&amp;sd=true</a></p>
-<p>You should put the organized data into a spreadsheet under the “fixed” sheet. When you’re done, upload the file using the form in Google Classroom.</p>
-<ul>
-<li>Consistent codes for categorical variables</li>
-<li>Uses <code>NA</code> for missing data where applicable</li>
-<li>Consistent variable names</li>
-<li>Consistent subject identifiers</li>
-<li>Dates written in YYYY-MM-DD format</li>
-<li>No leading or trailing white space</li>
-<li>No empty cells</li>
-<li>One item per cell</li>
-<li>Data are rectangular</li>
-<li>No calculations in raw data file</li>
-<li>No font color or highlighting as data</li>
-</ul>
-<p>Note that not all criteria necessarily apply to these data and some criteria may already be met and do not need to be fixed. Here is some helpful information about the variables:</p>
-<ul>
-<li><code>Sp 1</code> and <code>Sp 2</code> are species names for some fruit flies in the genus <em>Drosophila</em></li>
-<li><code>allop.</code> means that species 1 and 2 are allopatric (no range overlap)</li>
-<li><code>symp.</code> means that species 1 and 2 are sympatric (some range overlap)</li>
-<li><code>Nei's D</code> is a measure of genetic distance. Greater distance means there are more genetic differences between species</li>
-<li><code>Premating Isol.</code> is the amount of premating reproductive isolation between species (0 is low, 1 is high)</li>
-<li><code>Postz. hybrid fitness</code> is the postzygotic hybrid fitness. Are hybrids fertile, sterile, or none (hybrids not formed because species never mate)</li>
-</ul>
-<p>8a. Which of the following is a <em>categorical</em> variable?</p>
-<p>8b. Which of the following is a <em>numerical</em> variable?</p>
-<p>8c. Which of the following is a <em>ordinal</em> variable?</p>
-<ul>
-<li><code>Sp 1</code></li>
-<li><code>allop. = 0 / symp. = 1</code></li>
-<li><code>Genetic Distance (Nei's D)</code></li>
-<li><code>Postz. hybrid fitness</code></li>
-</ul>
-<p>Question 8a-c is worth [1] point in total.</p>
 </div>
 </div>
 
@@ -597,14 +568,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welina mai!</span>
+      <a href="./pset01.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Biostatistics basics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./pset02.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphics</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
