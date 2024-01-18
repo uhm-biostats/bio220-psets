@@ -10,6 +10,7 @@ book:
   chapters:
     - index.qmd
     - pset01.qmd
+    - pset02.qmd
 comments:
   hypothesis: true
 
