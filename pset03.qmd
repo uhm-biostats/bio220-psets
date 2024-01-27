@@ -60,7 +60,7 @@ library(DT)
 
 :::
 
-## Gliding snake undulation rate
+## Gliding snake undulation rate {.unnumbered}
 
 We saw the flying snake undulation data in lecture, they come from our WS textbook. The data are reproduced below:
 
@@ -85,7 +85,7 @@ For your answers be sure:
 :::
 
 
-## Sea urchin reproduction
+## Sea urchin reproduction {.unnumbered}
 
 ```{r, fig.align = "center", out.width="50%", fig.cap="The sea urchin *Echinometra mathaei* (Photo credit: Dr. Dwayne Meadows, NOAA/NMFS/OPR)"}
 knitr::include_graphics("img/Reef4081_-_Flickr_-_NOAA_Photo_Library.jpg")
