@@ -193,8 +193,8 @@ ggplot(df, aes(ybar, y, color = overlap)) +
 9. Which of the following statements most likely explains what you observe in this figure? [1 point]
 
 * These are 95% confidence intervals from 100 random samples
-* These are 95% confidence intervals from 100 samples with pseudo-replication 
-* Some confidence intervals do not overlap the population mean because the sample size is too small
-* Some confidence intervals do not overlap the population mean because the samples are biased
+* These are 95% confidence intervals from 100 nonrandom samples
+* These are 95% confidence intervals but some confidence intervals do not overlap the population mean because the sample size is too small
+* These are 95% confidence intervals but but some confidence intervals do not overlap the population mean because the samples are biased
 
 :::
