@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Problem Sets for Intro Biostatistics - 3&nbsp; Describing data</title>
+<title>Problem Sets for Intro Biostatistics - 4&nbsp; Sample estimates and confidence intervals</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./pset04.html" rel="next">
-<link href="./pset02.html" rel="prev">
+<link href="./pset03.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -97,6 +62,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
 
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.31/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/dt-ext-buttons-1.13.6/css/buttons.dataTables.min.css" rel="stylesheet">
+<script src="site_libs/dt-ext-buttons-1.13.6/js/dataTables.buttons.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.13.6/js/buttons.html5.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.13.6/js/buttons.colVis.min.js"></script>
+<script src="site_libs/dt-ext-buttons-1.13.6/js/buttons.print.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -111,7 +91,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing data</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset04.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sample estimates and confidence intervals</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -156,13 +136,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset03.html" class="sidebar-item-text sidebar-link active">
+  <a href="./pset03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset04.html" class="sidebar-item-text sidebar-link">
+  <a href="./pset04.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sample estimates and confidence intervals</span></span></a>
   </div>
 </li>
@@ -176,8 +156,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#gliding-snake-undulation-rate" id="toc-gliding-snake-undulation-rate" class="nav-link active" data-scroll-target="#gliding-snake-undulation-rate">Gliding snake undulation rate</a></li>
-  <li><a href="#sea-urchin-reproduction" id="toc-sea-urchin-reproduction" class="nav-link" data-scroll-target="#sea-urchin-reproduction">Sea urchin reproduction</a></li>
+  <li><a href="#how-much-caffeine-is-in-your-coffee" id="toc-how-much-caffeine-is-in-your-coffee" class="nav-link active" data-scroll-target="#how-much-caffeine-is-in-your-coffee"><span class="header-section-number">4.1</span> How much caffeine is in your coffee?</a></li>
+  <li><a href="#understanding-confidence-intervals" id="toc-understanding-confidence-intervals" class="nav-link" data-scroll-target="#understanding-confidence-intervals"><span class="header-section-number">4.2</span> Understanding confidence intervals</a></li>
   </ul>
 </nav>
     </div>
@@ -186,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing data</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sample estimates and confidence intervals</span></h1>
 </div>
 
 
@@ -201,106 +181,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p><strong>Due FRIDAY, Feb 2, 2024 by end of day</strong></p>
+<p><strong>Due Thursday, Feb 8, 2024 before class</strong></p>
 <p><strong>Submit your answers via Google Classroom</strong></p>
+<section id="how-much-caffeine-is-in-your-coffee" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="how-much-caffeine-is-in-your-coffee"><span class="header-section-number">4.1</span> How much caffeine is in your coffee?</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/A_small_cup_of_coffee.jpeg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">A cup of black coffee. (Photo credit: Julius Schorzman)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The table below contains data on the amount of caffeine in a 16 oz. cup of coffee obtained from various vendors. For context, doses of caffeine over 25 mg are enough to increase anxiety in some people, and doses over 300 to 360 mg are enough to significantly increase heart rate in most people. A can of Red Bull contains 80mg of caffeine.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-252b8f559b34192238c6" style="width:400px;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-252b8f559b34192238c6">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["Big Bean regular","Big Bean Boat Builders blend","Big Bean Organic Peru","Big Bean French Roast","Big Bean Ethiopian","Big Bean Italian Roast","Big Bean Costa Rica","Big Bean Kenya AA","Big Bean Sumatra Mandheling","Hampden Cafe Guatemala","Starbucks regular","Royal Farms regular","Dunkin' Donuts regular","Einstein Bros regular"],[164.7,147.6,186,179.8,157.1,171.8,245.1,204.9,168.5,172.7,259.3,225.7,143.4,206.3]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>brand<\/th>\n      <th>caffeine_mg_16oz<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Brtip","pageLength":14,"buttons":[{"extend":"copy","title":null}],"paging":false,"columnDefs":[{"className":"dt-right","targets":1},{"name":"brand","targets":0},{"name":"caffeine_mg_16oz","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,14,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Multiple choice questions
+Use the data table of coffee caffeine concentration to answers Questions 1–8
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>You can copy the data by clicking the “Copy” button. After you click the copy button, go to Google Drive and create a new google sheet. Paste the data into the google sheet and then download it as a CSV. To do this, follow the directions in <a href="https://uhm-biostats.github.io/biol220-labs/lab03.html#creating-a-data-file">Lab 3 Section 3.2.2 Creating a data file</a>. Work all the way through the steps including uploading your new data to <em>Posit Cloud</em></p>
+<p>Read the data into an R session in Posit Cloud and use those data to answer the following questions.</p>
 <ol type="1">
-<li><p>Which of the following accurately describes the numerator for the equation to calculate the variance? [1 point]</p>
-<ol type="a">
-<li>The square root of the standard deviation</li>
-<li>The sum of the average deviations between the data values and the mean</li>
-<li>The sum of the squared deviations between the data values and the mean</li>
-<li>The average of all the data values</li>
-</ol></li>
-<li><p>Using the data set shown below, what are the correct mean and median values for this data set [1 point]?</p>
-<blockquote class="blockquote">
-<p>Data set: <code>3, 4, 5, 5, 8, 9, 11, 11</code></p>
-</blockquote>
-<ol type="a">
-<li>Mean = 6.5, median = 7</li>
-<li>Mean = 7.5, median = 6</li>
-<li>Mean = 6, median = 7.5</li>
-<li>Mean = 7, median = 6.5</li>
-</ol></li>
+<li><p>What is the mean amount of caffeine in the sample of 16 oz. coffees? Round your answer to an appropriate digit. [1 point]</p></li>
+<li><p>What is the 95% confidence interval for the mean? Use the 2 SE rule and round your answer to an appropriate digit. Report your answer like “lower - upper”. For example, if the confidence interval were -1.1 to 2.1, then I would report “-1.1, - 2.1”. [1 point]</p></li>
+<li><p>Is the amount of caffeine in a cup of coffee relatively consistent from one vendor to another? To help answer that, calculate the standard deviation of caffeine level and round your answer to an appropriate digit. [1 point]</p></li>
+<li><p>The table below has data on six 16 oz. cups of Breakfast Blend coffee sampled on six different days from a Starbucks location. Calculate the the 95% confidence interval for the mean using the 2 SE rule for these data. Report your answer in the same format as Question 2. [1 point]</p></li>
 </ol>
-<!-- <div class="panel panel-success"> -->
-<!--   <div class="panel-heading">Explanation</div> -->
-<!--   <div class="panel-body"> -->
-<!--   The answer is **D. Mean = 7, median = 6.5** -->
-<!--   Mean: $3 + 4 + 5 + 5 + 8 + 9 + 11 + 11 = 56$; $56/8 = 7$ -->
-<!--   Median: The middle values are 5 and 8. Their average is 6.5 -->
-<!--   In *R* -->
-<!-- ```{r, echo = TRUE, eval = TRUE} -->
-<!-- x <- c(3, 4, 5, 5, 8, 9, 11, 11) -->
-<!-- mean(x) -->
-<!-- median(x) -->
-<!-- ``` -->
-<!--   </div> -->
-<!-- </div> -->
-<ol start="3" type="1">
-<li><p>The standard deviation has the same units as the data values, whereas the variance does not. [1 point]</p>
-<ul class="task-list">
-<li><input type="checkbox">TRUE</li>
-<li><input type="checkbox">FALSE</li>
-</ul></li>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-003ca68fa4a64b3ebdf6" style="width:400px;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-003ca68fa4a64b3ebdf6">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[[1,2,3,4,5,6],[564.4,498.2,259.2,303.3,299.5,307.2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>day<\/th>\n      <th>caffeine_mg_16oz<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Brtip","pageLength":6,"buttons":[{"extend":"copy","title":null}],"paging":false,"columnDefs":[{"className":"dt-right","targets":[0,1]},{"name":"day","targets":0},{"name":"caffeine_mg_16oz","targets":1}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<ol start="5" type="1">
+<li><p>Compare these results to the data taken on the broader sample of vendors in the first file. Describe the difference in 1-2 sentences. [2 point]</p></li>
+<li><p>Calculate the approximate 99% confidence interval for the mean caffeine level in the first table by using 2.5 SE’s rather than 2 SE. Again, round your answer to an appropriate digit and report your answer in the same format as Question 2 and 4. [1 point]</p></li>
+<li><p>Compare the 99% confidence interval calculated in Question 6 to the 95% confidence interval you calculate in question 2. Which confidence interval is wider (i.e., spans a broader range) and why? [1 point]</p></li>
+<li><p>Based on the two data sets above (Multiple brands and Starbucks), which of the figures below depicts the mean caffeine concentration with error bars equal to <span class="math inline">\(\pm\)</span> 1 standard error of the mean? [1 point]</p></li>
 </ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pset04_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
 </div>
 </div>
-<section id="gliding-snake-undulation-rate" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="gliding-snake-undulation-rate">Gliding snake undulation rate</h2>
-<p>We saw the flying snake undulation data in lecture, they come from our WS textbook. The data are reproduced below:</p>
-<p><code>0.9, 1.2, 1.2, 1.3, 1.4, 1.4, 1.6, 2.0</code> Hz</p>
-<p>These data are expressed in Hz which has units of 1/s (cycles per second). Frequency measurements are often expressed as angular velocity which is measured in rad/s (radians per second). Convert from Hz to angular velocity by multiplying by <span class="math inline">\(2 \pi\)</span>, then use the <em>transformed</em> data to answer the following questions</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Use the transformed data to calculate the sample mean, standard deviation, and variance.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>For your answers be sure:</p>
-<ul>
-<li>report values rounded to one significant digit greater than as reported in the data</li>
-<li>provide the <strong>correct units</strong>, using the ^ symbol for raising to a power. So if your answers were 2 square meters, you would write “2 m^2”</li>
-</ul>
-<ol start="4" type="1">
-<li><p>What is the transformed sample mean? [1 point]</p></li>
-<li><p>What is the transformed sample variance? [1 point]</p></li>
-<li><p>What is the transformed sample standard deviation? [1 point]</p></li>
-</ol>
 </div>
 </div>
 </section>
-<section id="sea-urchin-reproduction" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="sea-urchin-reproduction">Sea urchin reproduction</h2>
+<section id="understanding-confidence-intervals" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="understanding-confidence-intervals"><span class="header-section-number">4.2</span> Understanding confidence intervals</h2>
+<p>The figure below shows sample means (points) and associated confidence intervals of the mean (horizontal lines) from 100 different samples of the same population. In each case, the sample size is exactly <span class="math inline">\(n = 16\)</span>. Assume that all samples were conducted using an identical procedure.</p>
+<p>83 of 100 have confidence intervals that overlap the true population mean (vertical black line). These are shown with <strong>black</strong> points and lines. 17 of 100 have confidence intervals that do <strong>not</strong> overlap the true population mean (vertical black line). These are shown with <strong><span style="color:red">red</span></strong> points and lines.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/Reef4081_-_Flickr_-_NOAA_Photo_Library.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption class="figure-caption">The sea urchin <em>Echinometra mathaei</em> (Photo credit: Dr.&nbsp;Dwayne Meadows, NOAA/NMFS/OPR)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Reproduction in sea urchins involves the release of sperm and eggs in the open ocean. Fertilization begins when a sperm bumps into an egg and the sperm protein <em>bindin</em> attaches to the recognition sites on the egg surface. Gene sequences of <em>bindin</em> and egg-surface proteins vary greatly between closely related urchin species, thus reducing the chance of hybridization between species. In the burrowing sea urchin, <em>Echinometra mathaei</em>, the protein sequence for <em>bindin</em> varies even between populations within the same species. Do these differences affect fertilization? To test this, <a href="https://doi.org/10.1073/pnas.96.22.12632">Palumbi (1999)</a> carried out trials in which a mixture of sperm from AA and BB genotype males were added to dishes containing eggs of either the AA or the BB genotype. The results below indicate the proportion of successfully fertilized eggs (of both AA and BB genotypes) that were fertilized by AA genotype sperm. Note: we do not need to look at fertilization by BB sperm because by definition, the fraction will be 1 - <em>fraction fertilized by AA sperm</em>.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="pset03_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="288"></p>
+<p><img src="pset04_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="288"></p>
 </figure>
 </div>
 </div>
@@ -311,25 +265,19 @@ Use the transformed data to calculate the sample mean, standard deviation, and v
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Use the figure above to answer Questions 7–8.
+Use the figure above to answer Question 9
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol start="7" type="1">
-<li><p>Examine the graph and visually determine the approximate value of the median for each egg genotype. Round your answer to two decimal places. Your visual estimates should be within 0.05 of the true values. [1 point]</p></li>
-<li><p>Inspect the plot. Based on how the data in each egg genotype group are distributed across the y-axis, answer the follow:</p>
-<ol type="a">
-<li>Which method would be best to compare the spread of the fertilization data for each egg genotype group? Be sure to justify your answer [1 point]</li>
-<li>Use the raw data (shown below) to calculate the spread for each egg genotype group using the method you select in (8a.) [2 points]</li>
-</ol></li>
+<ol start="9" type="1">
+<li>Which of the following statements most likely explains what you observe in this figure? [1 point]</li>
 </ol>
-<p>You can copy the below code and run it in R to make two vectors: one with the data on fertilization proportions for eggs of AA genotype, the other for eggs of BB genotype:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>eggsAA <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.58</span>, <span class="fl">0.59</span>, <span class="fl">0.69</span>, <span class="fl">0.72</span>, <span class="fl">0.78</span>, <span class="fl">0.78</span>, <span class="fl">0.81</span>, </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>            <span class="fl">0.85</span>, <span class="fl">0.85</span>, <span class="fl">0.92</span>, <span class="fl">0.93</span>, <span class="fl">0.95</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>eggsBB <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.22</span>, <span class="fl">0.3</span>, <span class="fl">0.37</span>, <span class="fl">0.38</span>, <span class="fl">0.5</span>, <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<ul>
+<li>These are 95% confidence intervals from 100 random samples</li>
+<li>These are 95% confidence intervals from 100 nonrandom samples</li>
+<li>Some confidence intervals do not overlap the population mean because the sample size is too small</li>
+<li>Some confidence intervals do not overlap the population mean because the samples are biased</li>
+</ul>
 </div>
 </div>
 
@@ -572,14 +520,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./pset02.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphics</span></span>
+      <a href="./pset03.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./pset04.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sample estimates and confidence intervals</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
