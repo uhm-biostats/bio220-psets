@@ -13,6 +13,7 @@ book:
     - pset02.qmd
     - pset03.qmd
     - pset04.qmd
+    - pset05.qmd
 comments:
   hypothesis: true
 
