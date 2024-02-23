@@ -28,7 +28,7 @@ library(DT)
 
 2. Give an appropriate alternative hypothesis for this null hypothesis [1 point]:
 
-> $H_0$: There is no difference in the mean blood concentrations of C-reactive protein (used to diagnose Chron's disease, units: mg/dL) in patients given a diet high in broccoli sprouts compared to the control group
+> $H_0$: There is no difference in the mean blood concentrations of C-reactive protein (used to diagnose Crohn's disease, units: mg/dL) in patients given a diet high in broccoli sprouts compared to the control group
 
 3. Determine whether each hypothesis below is more appropriate as a null hypothesis or an alternative hypothesis: [1 point]
 
@@ -47,16 +47,16 @@ library(DT)
 4. Consider a clinical trial of a new drug to treat Alzheimer's. Half the participants are given the drug; half are given a placebo control. Treatments are assigned at random. Assuming that the drug actually has no effect, which of the following statements is true? [1 point]
 
     a. A clinical trial with a larger sample is **more** likely than a smaller trial to get a result with $p < 0.05$
-    b. A clinical trial with a larger sample is **less** likely than a smaller trial to get a result that $p < 0.05$
-    c. A clinical trial with a larger sample is **equally** likely than a smaller trial to get a result that $P < 0.05$
+    b. A clinical trial with a larger sample is **less** likely than a smaller trial to get a result with $p < 0.05$
+    c. A clinical trial with a larger sample is **equally** likely than a smaller trial to get a result with $p < 0.05$
     d. None of the above are true
     
 
 5. Consider a clinical trial of a new drug to treat Alzheimer's. Half the participants are given the drug; half are given a placebo control. Treatments are assigned at random. Assuming that the drug *actually does reduce the chance of developing Alzheimer's*, which of the following statements is true? [1 point]
 
     a. A clinical trial with a larger sample is **more** likely than a smaller trial to get a result with $p < 0.05$
-    b. A clinical trial with a larger sample is **less** likely than a smaller trial to get a result that $p < 0.05$
-    c. A clinical trial with a larger sample is **equally** likely than a smaller trial to get a result that $P < 0.05$
+    b. A clinical trial with a larger sample is **less** likely than a smaller trial to get a result with $p < 0.05$
+    c. A clinical trial with a larger sample is **equally** likely than a smaller trial to get a result with $p < 0.05$
     d. None of the above are true
 
 :::
