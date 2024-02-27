@@ -1,5 +1,5 @@
 ---
-title: "BIOL 220 Problem Set 02: Sample estimates and confidence intervals"
+title: "BIOL 220 Problem Set 04: Sample estimates and confidence intervals"
 subtitle: "Answer Key"
 format:
   pdf:

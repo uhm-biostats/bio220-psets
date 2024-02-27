@@ -1,5 +1,5 @@
 ---
-title: "BIOL 220 Problem Set 02: Describing data"
+title: "BIOL 220 Problem Set 03: Describing data"
 subtitle: "Answer Key"
 format:
   pdf:
