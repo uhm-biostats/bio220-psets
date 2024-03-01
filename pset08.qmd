@@ -1,4 +1,4 @@
-# Null Hypothesis Significance Testing
+# Binomial Test
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = TRUE, message = FALSE, 
