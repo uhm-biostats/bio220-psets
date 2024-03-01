@@ -17,7 +17,7 @@ library(DT)
 
 # Satellite forest mapping {.unnumbered}
 
-```{r, fig.align = "center", out.width="50%", fig.cap="Example of using remote sensing to identify likely areas of Rapid ʻŌhiʻa Death (modified from Vaughn et. al (2018)"}
+```{r, fig.align = "center", out.width="100%", fig.cap="Example of using remote sensing to identify likely areas of Rapid ʻŌhiʻa Death (modified from Vaughn et. al (2018)"}
 knitr::include_graphics("img/rod.png")
 ```
 
@@ -44,7 +44,7 @@ Rapid ʻŌhiʻa Death (ROD) is a devastating pathogen affecting native ʻōhiʻa
 knitr::include_graphics("img/Drosophila_picticornis.jpg")
 ```
 
-Hawaiian *Drosophila* (yes that famous genus of fruit fly) are super diverse and super awesome. They speciate like crazy due to reproductive isolation. When studying reproductive isolation between species, scientists will often allow different species to mate then count the viability of hybrid offspring. Suppose that you are measuring the viability of hybrids eggs laid by a female fruit fly. This female fruit fly will lay eggs over a period of one week, but she needs to be transferred to a fresh vial of food (yeast) every day. After you transfer her to a new vial, you count the number of eggs she laid and record the number of viable eggs. Here are your data:
+Hawaiian *Drosophila* (yes that famous genus of fruit fly) are super diverse and super awesome. They speciate like crazy due, in part, to reproductive isolation. When studying reproductive isolation between species, scientists will often allow different species to mate then count the viability of hybrid offspring. Suppose that you are measuring the viability of hybrids eggs laid by a female fruit fly. This female fruit fly will lay eggs over a period of one week, but she needs to be transferred to a fresh vial of food (yeast) every day. After you transfer her to a new vial, you count the number of eggs she laid and record the number of viable eggs. Here are your data:
 
  Day | Eggs laid | Viable offspring
 :---:|:---------:|:----------------:
