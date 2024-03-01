@@ -241,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Rapid ʻŌhiʻa Death (ROD) is a devastating pathogen affecting native ʻōhiʻa forests in Hawaiʻi. Much work has been done to try to document its spread. <a href="https://www.mdpi.com/2072-4292/10/4/502">Vaughn et al.&nbsp;(2018)</a> used remote sensing images from 2017 to detect areas of potential ROD. The image above is from the Kohala Mountains on the Island of Hawaiʻi and shows 28.67% ROD. Suppose you were able to re-survey this same area now in 2024 and calculate the percentage of ROD as 34.78%.</p>
+<p>Rapid ʻŌhiʻa Death (ROD) is a devastating pathogen affecting native ʻōhiʻa forests in Hawaiʻi. Much work has been done to try to document its spread. <a href="https://www.mdpi.com/2072-4292/10/4/502">Vaughn et al.&nbsp;(2018)</a> used remote sensing images from 2017 to detect areas of potential ROD. Remote sensing uses fancy cameras attached to low-flying airplanes to capture many different wavelengths of light. The wavelengths are then analyzed to classify areas as likely ROD or not. The image above is from the Kohala Mountains on the Island of Hawaiʻi and shows 28.67% ROD in forested areas. Suppose Vaughn et al.&nbsp;were able to re-survey this same area now in 2024 and calculate the percentage of ROD as 34.78%.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -253,12 +253,12 @@ Questions 1–2 refer to the prompt above.
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>True or false: would a binomial test be an appropriate method to test the hypothesis that ROD area has increased over time? [1 point]</p>
+<li><p>True or false: given the percentage data, would a binomial test be an appropriate method to test the hypothesis that ROD area has increased over time? [1 point]</p>
 <ul>
 <li>TRUE</li>
 <li>FALSE</li>
 </ul></li>
-<li><p>Instead, imagine you did “boots on the ground” survey in 2024 of individual trees and recorded whether each tree was infected with ROD or not. You find that out of 1000 trees you surveyed, 34.8% are infected. In this situation, would a binomial test be an appropriate method to test the hypothesis that ROD prevalence has increased compared to the 28.67% value from 2017 (true or false)? [1 point]</p>
+<li><p>Instead, imagine you did a “boots on the ground” survey in 2024 of individual trees in the Kohala Mountains and recorded whether each tree was infected with ROD or not. Imagine you find that out of 1000 trees you surveyed, 34.8% are infected. In this situation, would a binomial test be an appropriate method to test the hypothesis that ROD prevalence has increased compared to the 28.67% value from 2017 (true or false)? [1 point]</p>
 <ul>
 <li>TRUE</li>
 <li>FALSE</li>
@@ -278,7 +278,7 @@ Questions 1–2 refer to the prompt above.
 </div>
 </div>
 </div>
-<p>Hawaiian <em>Drosophila</em> (yes that famous genus of fruit fly) are super diverse and super awesome. They speciate like crazy due, in part, to reproductive isolation. When studying reproductive isolation between species, scientists will often allow different species to mate then count the viability of hybrid offspring. Suppose that you are measuring the viability of hybrids eggs laid by a female fruit fly. This female fruit fly will lay eggs over a period of one week, but she needs to be transferred to a fresh vial of food (yeast) every day. After you transfer her to a new vial, you count the number of eggs she laid and record the number of viable eggs. Here are your data:</p>
+<p>Hawaiian <em>Drosophila</em> (yes that famous genus of fruit fly) are super diverse and super awesome. They speciate like crazy due, in part, to reproductive isolation. When studying reproductive isolation between species, scientists will often allow different species to mate then count the viability of hybrid offspring. Suppose that you are measuring the viability of hybrid eggs laid by a female fruit fly. This female fruit fly will lay eggs over a period of one week, but she needs to be transferred to a fresh vial of food (yeast) every day. After you transfer her to a new vial, you count the number of eggs she laid and record the number of viable eggs. Here are your data:</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -359,7 +359,7 @@ Questions 3–6 refer to the prompt and table above
 <li><span class="math inline">\(H_0: p = 0.9\)</span></li>
 <li><span class="math inline">\(H_0: p = 1\)</span></li>
 </ul></li>
-<li><p>You estimate that the proportion of viable hybrid offspring from this female is <span class="math inline">\(\hat{p} = 0.53\)</span> and the 95% confidence interval for <span class="math inline">\(\hat{p}\)</span> is <span class="math inline">\(0.40--0.65\)</span>. Based on these results, would you conclude that hybrid offspring from this fly are less viable than offspring from typical crosses within species? [1]</p>
+<li><p>You estimate that the proportion of viable hybrid offspring from this female is <span class="math inline">\(\hat{p} = 0.53\)</span> and the 95% confidence interval for <span class="math inline">\(\hat{p}\)</span> is 0.40–0.65. Based on these results, would you conclude that hybrid offspring from this fly are less viable than offspring from typical crosses within species? [1 point]</p>
 <ol type="a">
 <li>No, because <span class="math inline">\(P &gt; 0.05\)</span></li>
 <li>Yes, because <span class="math inline">\(P &lt; 0.05\)</span></li>
@@ -395,11 +395,11 @@ In questions 7–10 you’ll work directly with the binomial distribution
 </div>
 </div>
 <ol start="8" type="1">
-<li><p>Use R code to calculate the probability of observing exactly 10 success from the sampling distribution for <span class="math inline">\(n = 20\)</span> trials with <span class="math inline">\(p = 0.20\)</span> [1 point] Report both your R code and the answer. For example if the question was “Use R code to calculate the sum of 1 plus 1” you would report:</p>
+<li><p>Use R code to calculate the probability of observing exactly 10 success from the binomial distribution for <span class="math inline">\(n = 20\)</span> trials with <span class="math inline">\(p = 0.20\)</span> [1 point] Report both your R code and the answer. For example if the question was “Use R code to calculate the sum of 1 plus 1” you would report:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Use R code to find the probability of 10 or more success from the sampling distribution for <span class="math inline">\(n = 20\)</span> trials with <span class="math inline">\(p = 0.20\)</span> [1 point] Report your answer in the same format as for question (8.)</p></li>
+<li><p>Use R code to find the probability of 10 or more success from the binomial distribution for <span class="math inline">\(n = 20\)</span> trials with <span class="math inline">\(p = 0.20\)</span> [1 point] Report your answer in the same format as for question (8.)</p></li>
 <li><p>Imagine I flipped a coin 20 times and got 6 heads versus 14 tails. Use R code to test the null hypothesis that this is a fair coin using the binomial test (hint: <span class="math inline">\(p = 0.5\)</span> is the correct value of <span class="math inline">\(p\)</span> for the null hypothesis of a fair coin). [1 point] Again report your answer in the format of questions (8.–9.)</p></li>
 </ol>
 </div>
