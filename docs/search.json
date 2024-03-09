@@ -152,5 +152,19 @@
     "title": "8  Binomial Test",
     "section": "Binomial distribution",
     "text": "Binomial distribution\n\n\n\n\n\n\nIn questions 7–10 you’ll work directly with the binomial distribution\n\n\n\n\nWhich of the following figures correctly shows the sampling distribution for \\(n = 20\\) trials with \\(p = 0.20\\)? [1 point]\n\n\n\n\n\n\n\n\n\n\n\nUse R code to calculate the probability of observing exactly 10 success from the binomial distribution for \\(n = 20\\) trials with \\(p = 0.20\\) [1 point] Report both your R code and the answer. For example if the question was “Use R code to calculate the sum of 1 plus 1” you would report:\n1 + 1\n\n# 2\nUse R code to find the probability of 10 or more success from the binomial distribution for \\(n = 20\\) trials with \\(p = 0.20\\) [1 point] Report your answer in the same format as for question (8.)\nImagine I flipped a coin 20 times and got 6 heads versus 14 tails. Use R code to test the null hypothesis that this is a fair coin using the binomial test (hint: \\(p = 0.5\\) is the correct value of \\(p\\) for the null hypothesis of a fair coin). [1 point] Again report your answer in the format of questions (8.–9.)"
+  },
+  {
+    "objectID": "pset09.html",
+    "href": "pset09.html",
+    "title": "9  Hypothesis tests with a \\(\\chi^2\\) null distribution",
+    "section": "",
+    "text": "Working with the \\(chi^2\\) goodness of fit test\nSuppose you have data on the frequencies of three different groups (you can imagine your favorite kinds of things—three fish species, three types of candy, three health behaviors). You would like to know if the the groups and equally represented in your data or not. Imagine this is what your data look like:\nGrandinetti et al. (2007) studied prevalence of diabetes in North Kōhala on the Island of Hawaiʻi. They found significant disparities in diabetes prevalence across ethnic groups, with Native Hawaiian and Asian individuals at higher risk of diabetes. This increased risk could not be explained by shared lifestyle risk factors, indicating that other, unmeasured, drivers were likely at play (side note from Andy: perhaps colonialism).\nThe table below summarizes the results of Grandinetti et al. (2007) with respect to diabetes prevelance by ethnic group.\nCaucasian\nFilipino\nHawaiian\nJapanese\nOther/mixed non-Hawaiian\n\n\n\n\nYes diabetes\n13\n36\n100\n40\n39\n\n\nNo diabetes\n282\n150\n426\n150\n216"
+  },
+  {
+    "objectID": "pset09.html#chi2-distribution",
+    "href": "pset09.html#chi2-distribution",
+    "title": "9  Hypothesis tests with a \\(\\chi^2\\) null distribution",
+    "section": "9.1 \\(\\chi^2\\) distribution",
+    "text": "9.1 \\(\\chi^2\\) distribution\n\n\n\n\n\n\n\\(\\chi^2\\) distribution\n\n\n\n\nWhich of the following figures correctly shows a \\(\\chi^2\\) sampling distribution with 6 degrees of freedom and a test statistic (vertical line) consistent with a \\(P\\)-value of 0.04. [1 point]"
   }
 ]
