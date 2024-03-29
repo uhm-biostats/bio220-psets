@@ -51,10 +51,10 @@ ggplot(df, aes(x, y)) +
 
 ```
 
-A. There is an approximately 95% chance the value is between 0 and 2.
-B. The value will be greater than 0 
-C. There is a 40% chance the value will be 0
-D. There is more probability above the mean than below
+    a. There is an approximately 95% chance the value is between 0 and 2.
+    b. The value will be greater than 0 
+    c. There is a 40% chance the value will be 0
+    d. There is more probability above the mean than below
 
 5. Consider a continuous value $Y$ with a population probability distribution shown below:
 
