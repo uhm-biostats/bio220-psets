@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Problem Sets for Intro Biostatistics - 8&nbsp; Binomial Test</title>
+<title>Problem Sets for Intro Biostatistics - 10&nbsp; Introducing the normal distribution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./pset09.html" rel="next">
-<link href="./pset07.html" rel="prev">
+<link href="./pset09.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -111,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset08.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial Test</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset10.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducing the normal distribution</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -186,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset08.html" class="sidebar-item-text sidebar-link active">
+  <a href="./pset08.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial Test</span></span></a>
   </div>
 </li>
@@ -198,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset10.html" class="sidebar-item-text sidebar-link">
+  <a href="./pset10.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducing the normal distribution</span></span></a>
   </div>
 </li>
@@ -208,24 +173,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#satellite-forest-mapping" id="toc-satellite-forest-mapping" class="nav-link active" data-scroll-target="#satellite-forest-mapping">Satellite forest mapping</a>
-  <ul class="collapse">
-  <li><a href="#hybrid-viability" id="toc-hybrid-viability" class="nav-link" data-scroll-target="#hybrid-viability">Hybrid viability</a></li>
-  <li><a href="#binomial-distribution" id="toc-binomial-distribution" class="nav-link" data-scroll-target="#binomial-distribution">Binomial distribution</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial Test</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducing the normal distribution</span></h1>
 </div>
 
 
@@ -240,187 +195,103 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p><strong>Due Thursday, March 7, 2024 before lecture</strong></p>
+<p><strong>Due Thursday, April 4, 2024 before lecture</strong></p>
 <p><strong>Submit your answers via Google Classroom</strong></p>
-<section id="satellite-forest-mapping" class="level1 unnumbered">
-<h1 class="unnumbered">Satellite forest mapping</h1>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/rod.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Example of using remote sensing to identify likely areas of Rapid ʻŌhiʻa Death (modified from Vaughn et. al (2018)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Rapid ʻŌhiʻa Death (ROD) is a devastating pathogen affecting native ʻōhiʻa forests in Hawaiʻi. Much work has been done to try to document its spread. <a href="https://www.mdpi.com/2072-4292/10/4/502">Vaughn et al.&nbsp;(2018)</a> used remote sensing images from 2017 to detect areas of potential ROD. Remote sensing uses fancy cameras attached to low-flying airplanes to capture many different wavelengths of light. The wavelengths are then analyzed to classify areas as likely ROD or not. The image above is from the Kohala Mountains on the Island of Hawaiʻi and shows 28.67% ROD in forested areas. Suppose Vaughn et al.&nbsp;were able to re-survey this same area now in 2024 and calculate the percentage of ROD as 34.78%.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Questions 1–2 refer to the prompt above.
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>True or false: given the percentage data, would a binomial test be an appropriate method to test the hypothesis that ROD area has increased over time? [1 point]</p>
-<ul>
-<li>TRUE</li>
-<li>FALSE</li>
-</ul></li>
-<li><p>Instead, imagine you did a “boots on the ground” survey in 2024 of individual trees in the Kohala Mountains and recorded whether each tree was infected with ROD or not. Imagine you find that out of 1000 trees you surveyed, 34.8% are infected. In this situation, would a binomial test be an appropriate method to test the hypothesis that ROD prevalence has increased compared to the 28.67% value from 2017 (true or false)? [1 point]</p>
-<ul>
-<li>TRUE</li>
-<li>FALSE</li>
-</ul></li>
+<li><p>Which of the following is <strong>not</strong> a property of the normal distribution? [1 point]</p>
+<ol type="a">
+<li>It has a single mode</li>
+<li>Symmetrical around its mean</li>
+<li>Discrete distribution</li>
+<li>The probability density is highest exactly at the mean</li>
+</ol></li>
+<li><p>If <span class="math inline">\(\sigma = 0.5\)</span> and <span class="math inline">\(\mu = 2\)</span>, what is the standard error of the sample mean for <span class="math inline">\(n = 25\)</span>? [1 point]</p>
+<ol type="a">
+<li>0.02</li>
+<li>0.04</li>
+<li>0.1</li>
+<li>0.2</li>
+<li>0.4</li>
+</ol></li>
+<li><p>Consider a normal distribution with the mean and standard deviation described in question 2 above. If <span class="math inline">\(Y_i = 3\)</span>, how many standard deviations above the mean is that value? [1 point]</p>
+<ol type="a">
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>6</li>
+</ol></li>
+<li><p>Consider the standard normal distribution shown below. Which of the following statements is correct about a value drawn from this distribution at random? [1 point]</p></li>
 </ol>
-</div>
-</div>
-<section id="hybrid-viability" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="hybrid-viability">Hybrid viability</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/Drosophila_picticornis.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption class="figure-caption">A representative of the diverse Hawaiian Drosophila: D. picticornis</figcaption>
+<p><img src="pset10_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="288"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Hawaiian <em>Drosophila</em> (yes that famous genus of fruit fly) are super diverse and super awesome. They speciate like crazy due, in part, to reproductive isolation. When studying reproductive isolation between species, scientists will often allow different species to mate then count the viability of hybrid offspring. Suppose that you are measuring the viability of hybrid eggs laid by a female fruit fly. This female fruit fly will lay eggs over a period of one week, but she needs to be transferred to a fresh vial of food (yeast) every day. After you transfer her to a new vial, you count the number of eggs she laid and record the number of viable eggs. Here are your data:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Day</th>
-<th style="text-align: center;">Eggs laid</th>
-<th style="text-align: center;">Viable offspring</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">8</td>
-<td style="text-align: center;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">13</td>
-<td style="text-align: center;">6</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">9</td>
-<td style="text-align: center;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">8</td>
-<td style="text-align: center;">5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td style="text-align: center;">9</td>
-<td style="text-align: center;">6</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Questions 3–6 refer to the prompt and table above
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol start="3" type="1">
-<li><p>If you wish to perform a binomial test on total offspring viability for this fly, what would the <em>number of trials</em> be in these data? [1 point]</p>
-<ul>
-<li>1</li>
-<li>2</li>
-<li>7</li>
-<li>31</li>
-<li>59</li>
-</ul></li>
-<li><p>If you wish to perform a binomial test on total offspring viability for this fly, what would the value for the test statistic be in these data? [1 point]</p>
-<ul>
-<li>1</li>
-<li>2</li>
-<li>7</li>
-<li>31</li>
-<li>59</li>
-</ul></li>
-<li><p>Matings <em>within</em> the same species of <em>Drosophila</em> usually yield eggs that are 90% viable. If you wish to test whether matings <em>between</em> species are less viable than matings <em>within</em> species, a form of reproductive isolation, what would an appropriate null hypothesis be? [1 point]</p>
-<ul>
-<li><span class="math inline">\(H_0: p = 0\)</span></li>
-<li><span class="math inline">\(H_0: p = 0.5\)</span></li>
-<li><span class="math inline">\(H_0: p = 0.9\)</span></li>
-<li><span class="math inline">\(H_0: p = 1\)</span></li>
-</ul></li>
-<li><p>You estimate that the proportion of viable hybrid offspring from this female is <span class="math inline">\(\hat{p} = 0.53\)</span> and the 95% confidence interval for <span class="math inline">\(\hat{p}\)</span> is 0.40–0.65. Based on these results, would you conclude that hybrid offspring from this fly are less viable than offspring from typical crosses within species? [1 point]</p>
-<ol type="a">
-<li>No, because <span class="math inline">\(P &gt; 0.05\)</span></li>
-<li>Yes, because <span class="math inline">\(P &lt; 0.05\)</span></li>
-<li>No, because <span class="math inline">\(p = 0.9\)</span>, the typical proportion of viable offspring for within species crosses, is well outside the 95% confidence intervals</li>
-<li>Yes, because <span class="math inline">\(p = 0.9\)</span>, the typical proportion of viable offspring for within species crosses, is well outside the 95% confidence intervals</li>
-</ol></li>
-</ol>
-</div>
-</div>
-</section>
-<section id="binomial-distribution" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="binomial-distribution">Binomial distribution</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-In questions 7–10 you’ll work directly with the binomial distribution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol start="7" type="1">
-<li>Which of the following figures correctly shows the sampling distribution for <span class="math inline">\(n = 20\)</span> trials with <span class="math inline">\(p = 0.20\)</span>? [1 point]</li>
+<p>A. There is an approximately 95% chance the value is between 0 and 2. B. The value will be greater than 0 C. There is a 40% chance the value will be 0 D. There is more probability above the mean than below</p>
+<ol start="5" type="1">
+<li>Consider a continuous value <span class="math inline">\(Y\)</span> with a population probability distribution shown below:</li>
 </ol>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="pset08_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<p><img src="pset10_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The four figures below (A.-D.) display the distribution of sample means, <span class="math inline">\(\overline{Y}\)</span>, from 1000 hypothetical, repeated studies, each with sample sizes of <span class="math inline">\(n = 4\)</span>, <span class="math inline">\(n = 16\)</span>, <span class="math inline">\(n = 36\)</span>, or <span class="math inline">\(n = 64\)</span>. Which figure is most likely associated with sample means where <span class="math inline">\(n = 64\)</span>? [1 point]</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pset10_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>The figures below are the QQ plots associated with the distributions of <span class="math inline">\(\overline{Y}\)</span> from question 5, but they are in random order. Which QQ-plot is associated with the histogram in panel A. from question 5? [1 point]</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pset10_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="7" type="1">
+<li>The four figures below (A.-D.) are 1000 random sample means <em>after</em> log-transformation <span class="math inline">\(\overline{\text{log}(Y)}\)</span>. These are the same random samples in Question 5, but in a different order and with a log-transformation applied. As in question 5, the sample sizes are <span class="math inline">\(n = 4\)</span>, <span class="math inline">\(n = 16\)</span>, <span class="math inline">\(n = 36\)</span>, and <span class="math inline">\(n = 64\)</span>. Which figure is most likely associated with sample means of log-transformed values where <span class="math inline">\(n = 16\)</span>? [1 point]</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pset10_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 <ol start="8" type="1">
-<li><p>Use R code to calculate the probability of observing exactly 10 success from the binomial distribution for <span class="math inline">\(n = 20\)</span> trials with <span class="math inline">\(p = 0.20\)</span> [1 point] Report both your R code and the answer. For example if the question was “Use R code to calculate the sum of 1 plus 1” you would report:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Use R code to find the probability of 10 or more success from the binomial distribution for <span class="math inline">\(n = 20\)</span> trials with <span class="math inline">\(p = 0.20\)</span> [1 point] Report your answer in the same format as for question (8.)</p></li>
-<li><p>Imagine I flipped a coin 20 times and got 6 heads versus 14 tails. Use R code to test the null hypothesis that this is a fair coin using the binomial test (hint: <span class="math inline">\(p = 0.5\)</span> is the correct value of <span class="math inline">\(p\)</span> for the null hypothesis of a fair coin). [1 point] Again report your answer in the format of questions (8.–9.)</p></li>
+<li><p>Which <em>R</em> function would be best suited to calculating the shaded areas under the normal curve in this figure? [1 point]</p>
+<p><img src="img/standard_norm_4_pnorm.png" class="img-fluid" style="width:40.0%"></p>
+<ol type="a">
+<li><code>dnorm()</code></li>
+<li><code>pnorm()</code></li>
+<li><code>qnorm()</code></li>
+<li><code>rnorm()</code></li>
+</ol></li>
+<li><p>Use the appropriate <em>R</em> functions to calculate the probability of observing a value less than -0.5 and the probability of observing a value less than 0.5 from a standard normal distribution (i.e.&nbsp;a normal distribution with mean = 0 and SD = 1). To answer this question, paste both the <em>R</em> code and the answer into the google form [1 point]</p></li>
+<li><p>From a standard normal distribution, what is the probability of observing a value <em>between</em> -0.5 and 0.5? <em>Hint: you will need to use the calculations from question 9 to answer this question</em>. To answer this question, paste both the <em>R</em> code and the answer into the google form [1 point]</p></li>
 </ol>
-</div>
-</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -658,14 +529,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./pset07.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Null Hypothesis Significance Testing</span></span>
+      <a href="./pset09.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis tests with a <span class="math inline">\(\chi^2\)</span> null distribution</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./pset09.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis tests with a <span class="math inline">\(\chi^2\)</span> null distribution</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
