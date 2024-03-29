@@ -15,7 +15,7 @@ library(DT)
 
 **Submit your answers via Google Classroom**
 
-# Working with the $chi^2$ goodness of fit test {.unnumbered}
+## Working with the $\chi^2$ goodness of fit test {.unnumbered}
 
 Suppose you have data on the frequencies of three different groups (you can imagine your favorite kinds of things---three fish species, three types of candy, three health behaviors). You would like to know if the the groups and equally represented in your data or not.  Imagine this is what your data look like:
 
