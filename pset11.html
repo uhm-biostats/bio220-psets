@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Problem Sets for Intro Biostatistics - 9&nbsp; Hypothesis tests with a \(\chi^2\) null distribution</title>
+<title>Problem Sets for Intro Biostatistics - 11&nbsp; Introducing the normal distribution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./pset10.html" rel="next">
-<link href="./pset08.html" rel="prev">
+<link href="./pset10.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -77,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset09.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis tests with a $\chi^2$ null distribution</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset11.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introducing the normal distribution</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -158,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset09.html" class="sidebar-item-text sidebar-link active">
+  <a href="./pset09.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis tests with a <span class="math inline">\(\chi^2\)</span> null distribution</span></span></a>
   </div>
 </li>
@@ -170,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset11.html" class="sidebar-item-text sidebar-link">
+  <a href="./pset11.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introducing the normal distribution</span></span></a>
   </div>
 </li>
@@ -184,11 +217,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#working-with-the-chi2-goodness-of-fit-test" id="toc-working-with-the-chi2-goodness-of-fit-test" class="nav-link active" data-scroll-target="#working-with-the-chi2-goodness-of-fit-test">Working with the <span class="math inline">\(\chi^2\)</span> goodness of fit test</a></li>
-  <li><a href="#diabetes-prevelance-in-hawaiʻi" id="toc-diabetes-prevelance-in-hawaiʻi" class="nav-link" data-scroll-target="#diabetes-prevelance-in-hawaiʻi">Diabetes prevelance in Hawaiʻi</a>
-  <ul class="collapse">
-  <li><a href="#chi2-distribution" id="toc-chi2-distribution" class="nav-link" data-scroll-target="#chi2-distribution"><span class="header-section-number">9.1</span> <span class="math inline">\(\chi^2\)</span> distribution</a></li>
-  </ul></li>
+  <li><a href="#phenology" id="toc-phenology" class="nav-link active" data-scroll-target="#phenology"><span class="header-section-number">12</span> Phenology</a></li>
+  <li><a href="#banana-peels-and-lotus-leaves" id="toc-banana-peels-and-lotus-leaves" class="nav-link" data-scroll-target="#banana-peels-and-lotus-leaves"><span class="header-section-number">13</span> Banana peels and <em>Lotus</em> leaves</a></li>
+  <li><a href="#distinguishing-distributions" id="toc-distinguishing-distributions" class="nav-link" data-scroll-target="#distinguishing-distributions"><span class="header-section-number">14</span> Distinguishing distributions</a></li>
   </ul>
 </nav>
     </div>
@@ -197,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis tests with a <span class="math inline">\(\chi^2\)</span> null distribution</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Introducing the normal distribution</span></h1>
 </div>
 
 
@@ -212,147 +243,116 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><strong>Due Thursday, March 14, 2024 before lecture</strong></p>
+<p><strong>Due Thursday, April 11, 2024 before lecture</strong></p>
 <p><strong>Submit your answers via Google Classroom</strong></p>
-<section id="working-with-the-chi2-goodness-of-fit-test" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="working-with-the-chi2-goodness-of-fit-test">Working with the <span class="math inline">\(\chi^2\)</span> goodness of fit test</h2>
-<p>Suppose you have data on the frequencies of three different groups (you can imagine your favorite kinds of things—three fish species, three types of candy, three health behaviors). You would like to know if the the groups and equally represented in your data or not. Imagine this is what your data look like:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: right;">group A</th>
-<th style="text-align: right;">group B</th>
-<th style="text-align: right;">group C</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">13</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Use the above table to answer questions 1–3.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><p>Under the null hypothesis of equal frequencies across groups, what are the expected frequencies for groups A, B, and C? [1 point]</p></li>
-<li><p>Calculate the <span class="math inline">\(\chi^2\)</span> statistic for these data [1 point]</p></li>
-<li><p>What are the degrees of freedom for these data? [1 point]</p></li>
-<li><p>With the <span class="math inline">\(\chi^2\)</span> statistic and degrees of freedom you just figured out, use <code>pchisq</code> to calculate the <span class="math inline">\(P\)</span>-value of the null hypothesis [1 point]</p></li>
-<li><p>Do we reject the null hypothesis? [1 point]</p></li>
-</ol>
-</div>
-</div>
-</section>
-<section id="diabetes-prevelance-in-hawaiʻi" class="level1 unnumbered">
-<h1 class="unnumbered">Diabetes prevelance in Hawaiʻi</h1>
-<p><a href="https://pubmed.ncbi.nlm.nih.gov/17682354/">Grandinetti et al.&nbsp;(2007)</a> studied prevalence of diabetes in North Kōhala on the Island of Hawaiʻi. They found significant disparities in diabetes prevalence across ethnic groups, with Native Hawaiian and Asian individuals at higher risk of diabetes. This increased risk could not be explained by shared lifestyle risk factors, indicating that other, unmeasured, drivers were likely at play (side note from Andy: perhaps colonialism).</p>
-<p>The table below summarizes the results of Grandinetti et al.&nbsp;(2007) with respect to diabetes prevelance by ethnic group.</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 13%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">Caucasian</th>
-<th style="text-align: right;">Filipino</th>
-<th style="text-align: right;">Hawaiian</th>
-<th style="text-align: right;">Japanese</th>
-<th style="text-align: right;">Other/mixed non-Hawaiian</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Yes diabetes</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">36</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">39</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">No diabetes</td>
-<td style="text-align: right;">282</td>
-<td style="text-align: right;">150</td>
-<td style="text-align: right;">426</td>
-<td style="text-align: right;">150</td>
-<td style="text-align: right;">216</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Use the above table to answer questions 6–9.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol start="6" type="1">
-<li><p>To address the question of “are there differences in diabetes prevalence across ethnic groups?” what should our null hypothesis be? [1 point]</p></li>
-<li><p>If you were to use a <span class="math inline">\(\chi^2\)</span> distribution to represent this null hypothesis, what are the correct degrees of freedom? [1 point]</p>
-<ul>
-<li>1</li>
-<li>2</li>
-<li>4</li>
-<li>5</li>
-<li>10</li>
-</ul></li>
-<li><p>Use R code to make a matrix of the diabetes data. To answer this question, paste your R code into the google form [1 point]</p></li>
-<li><p>Use <code>chisq.test</code> to conduct a <span class="math inline">\(\chi^2\)</span> null hypothesis test. Report the test statistic and <span class="math inline">\(P\)</span>-value in the google form [1 point]</p></li>
-</ol>
-</div>
-</div>
-<section id="chi2-distribution" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="chi2-distribution"><span class="header-section-number">9.1</span> <span class="math inline">\(\chi^2\)</span> distribution</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="math inline">\(\chi^2\)</span> distribution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol start="10" type="1">
-<li>Which of the following figures correctly shows a <span class="math inline">\(\chi^2\)</span> sampling distribution with 6 degrees of freedom and a test statistic (vertical line) consistent with a <span class="math inline">\(P\)</span>-value of 0.04. [1 point]</li>
-</ol>
+<section id="phenology" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Phenology</h1>
+<p>According to Wikipedia, “Phenology is the study of periodic events in biological life cycles and how these are influenced by seasonal and interannual variations in climate, as well as habitat factors”. Suppose that you want to test a hypothesis about the timing of a winter-flowering plant. You survey a random sample of 100 plants from a population every day of the year and record the number of plants producing their first flower on that date. The figure below shows the number of plants that first flower on a given Julian day (January 1 has Julian day of 0; December 31 has a Julian day of 365).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="pset09_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<p><img src="pset11_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question 31 refers to the prompt and figure above.
 </div>
 </div>
-
-
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Would a one-sample <span class="math inline">\(t\)</span>-test be an appropriate method to test a hypothesis about the mean time to first flower in this population? Answer the question assuming you cannot make any changes to the data, such as binning or transformation. [1]</p>
+<ol type="a">
+<li>Yes, the data meet all the assumptions of the one-sample <span class="math inline">\(t\)</span>-test</li>
+<li>No, because the data are discrete counts per day rather than continuous</li>
+<li>No, because it’s not possible to state a null hypothesis</li>
+<li>No, because the data are not normally distributed</li>
+</ol></li>
+</ol>
+</div>
+</div>
 </section>
+<section id="banana-peels-and-lotus-leaves" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Banana peels and <em>Lotus</em> leaves</h1>
+<p>How slippery are banana peels? “Slipperiness” is measured by the coefficient of friction. A small value for the coefficient indicates less friction (more slippery) than a larger value. For reference, another slippery biological material, the water-repellent <em>Lotus</em> leaf has a coefficient of 0.05. Below are 41 measurements of the coefficient of friction of banana skins on linoleum, with the slippery side down (Mabuchi <em>et al.</em> 2012).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Banana coefficient of friction (cof)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># You can copy-and-paste into R</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>banana_cof <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.029</span>, <span class="fl">0.034</span>, <span class="fl">0.036</span>, <span class="fl">0.037</span>, <span class="fl">0.039</span>, <span class="fl">0.041</span>, <span class="fl">0.041</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.042</span>, <span class="fl">0.043</span>, <span class="fl">0.043</span>, <span class="fl">0.045</span>, <span class="fl">0.047</span>, <span class="fl">0.047</span>, <span class="fl">0.048</span>, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.048</span>, <span class="fl">0.048</span>, <span class="fl">0.053</span>, <span class="fl">0.054</span>, <span class="fl">0.054</span>, <span class="fl">0.054</span>, <span class="fl">0.055</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.055</span>, <span class="fl">0.056</span>, <span class="fl">0.056</span>, <span class="fl">0.057</span>, <span class="fl">0.059</span>, <span class="fl">0.06</span>, <span class="fl">0.062</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.062</span>, <span class="fl">0.063</span>, <span class="fl">0.064</span>, <span class="fl">0.065</span>, <span class="fl">0.069</span>, <span class="fl">0.069</span>, <span class="fl">0.07</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.071</span>, <span class="fl">0.075</span>, <span class="fl">0.078</span>, <span class="fl">0.080</span>, <span class="fl">0.113</span>, <span class="fl">0.125</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>::: {.callout-tip} ## Questions 2–8 refer to the prompt and data above</p>
+<ol start="2" type="1">
+<li><p>Suppose that you want to test whether the banana peel is more slippery than a <em>Lotus</em> leaf using a one-sample <span class="math inline">\(t\)</span>-test. What is an appropriate null hypothesis? [1]</p>
+<ol type="a">
+<li><span class="math inline">\(\mu = 0.05\)</span></li>
+<li><span class="math inline">\(\mu = 0.025\)</span></li>
+<li><span class="math inline">\(\mu = 1\)</span></li>
+<li><span class="math inline">\(\mu = 0\)</span></li>
+</ol></li>
+<li><p>For a one-sample <span class="math inline">\(t\)</span>-test, how many degrees of freedom would you use for this data set? [1]</p></li>
+<li><p>Calculate the 95% confidence intervals of the mean of the coefficient of friction for the banana peel data. Report your answer rounded to the nearest 0.001 and separated by a “-”, like this: 0.123-0.456. [1]</p></li>
+<li><p>For a one-sample <span class="math inline">\(t\)</span>-test, calculate the test statistic rounded to the nearest 0.001. [1]</p></li>
+<li><p>For a one-sample <span class="math inline">\(t\)</span>-test, what is the <span class="math inline">\(P\)</span>-value? [1]</p></li>
+</ol>
+<!-- Answers based on these: -->
+<!-- t.test(df$cof, mu = 0.05) # correct -->
+<!-- t.test(df$cof, mu = 0.02) # copied from book -->
+<!-- t.test(df$cof, mu = 0) # naive -->
+<ol start="7" type="1">
+<li><p>Based on your confidence intervals and <span class="math inline">\(P\)</span>-value, are banana peels significantly more slippery than <em>Lotus</em> leaves? [1]</p></li>
+<li><p>A better test of whether banana peels are more slippery than <em>Lotus</em> leaves would be to have replicated measures of the coefficient of friction of multiple different <em>Lotus</em> leaves.</p>
+<p>Imagine this is such a dataset on <em>Lotus</em> leaves:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lotus_cof <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.052</span>, <span class="fl">0.062</span>, <span class="fl">0.056</span>, <span class="fl">0.039</span>, <span class="fl">0.043</span>, <span class="fl">0.046</span>, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>               <span class="fl">0.046</span>, <span class="fl">0.062</span>, <span class="fl">0.077</span>, <span class="fl">0.051</span>, <span class="fl">0.048</span>, <span class="fl">0.064</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               <span class="fl">0.058</span>, <span class="fl">0.059</span>, <span class="fl">0.051</span>, <span class="fl">0.023</span>, <span class="fl">0.051</span>, <span class="fl">0.032</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>               <span class="fl">0.047</span>, <span class="fl">0.052</span>, <span class="fl">0.066</span>, <span class="fl">0.053</span>, <span class="fl">0.043</span>, <span class="fl">0.053</span>, </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>               <span class="fl">0.045</span>, <span class="fl">0.057</span>, <span class="fl">0.051</span>, <span class="fl">0.041</span>, <span class="fl">0.047</span>, <span class="fl">0.041</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Use a two-sample t-test to test the null hypothesis that the means of the two vectors are equal. To answer this question, paste the output of <code>t.test</code> into the google form</p></li>
+</ol>
+</section>
+<section id="distinguishing-distributions" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Distinguishing distributions</h1>
+<p>The figure plots 3 continuous probability distributions: <span class="math inline">\(\text{Normal}(\mu = 0, \sigma = 2)\)</span>, <span class="math inline">\(t_2\)</span>, and the <span class="math inline">\(Z\)</span> distribution).</p>
+<!-- # distinguish between t, Z, and other normal dist (sigma = 2 or whatever) -->
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pset11_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Questions 9–10 refer to the figure above.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol start="9" type="1">
+<li><p>Which figure shows the <span class="math inline">\(t_2\)</span> distribution? [1]</p></li>
+<li><p>Which figure shows the <span class="math inline">\(Z\)</span> distribution? [1]</p></li>
+</ol>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -591,14 +591,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./pset08.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Binomial Test</span></span>
+      <a href="./pset10.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducing the normal distribution</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./pset10.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducing the normal distribution</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
