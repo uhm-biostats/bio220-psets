@@ -1,4 +1,4 @@
-# Introducing the normal distribution
+# Analyzing means with t-tests
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = TRUE, message = FALSE, 
