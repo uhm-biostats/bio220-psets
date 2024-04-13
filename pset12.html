@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Problem Sets for Intro Biostatistics - 2&nbsp; Graphics</title>
+<title>Problem Sets for Intro Biostatistics - 12&nbsp; Correlation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./pset03.html" rel="next">
-<link href="./pset01.html" rel="prev">
+<link href="./pset11.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -97,9 +96,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
 
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -114,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphics</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset12.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Correlation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -153,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset02.html" class="sidebar-item-text sidebar-link active">
+  <a href="./pset02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphics</span></span></a>
   </div>
 </li>
@@ -213,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset12.html" class="sidebar-item-text sidebar-link">
+  <a href="./pset12.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
   </div>
 </li>
@@ -227,9 +223,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#fix-this-graph" id="toc-fix-this-graph" class="nav-link active" data-scroll-target="#fix-this-graph">Fix this graph!</a></li>
-  <li><a href="#interpreting-figures" id="toc-interpreting-figures" class="nav-link" data-scroll-target="#interpreting-figures">Interpreting figures</a></li>
-  <li><a href="#making-graphics" id="toc-making-graphics" class="nav-link" data-scroll-target="#making-graphics">Making graphics</a></li>
+  <li><a href="#benefits-of-biodiversity" id="toc-benefits-of-biodiversity" class="nav-link active" data-scroll-target="#benefits-of-biodiversity">Benefits of biodiversity</a></li>
+  <li><a href="#visualizing-correlation" id="toc-visualizing-correlation" class="nav-link" data-scroll-target="#visualizing-correlation">Visualizing correlation</a></li>
   </ul>
 </nav>
     </div>
@@ -238,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphics</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Correlation</span></h1>
 </div>
 
 
@@ -253,58 +248,148 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p><strong>Due Thursday, Jan 25, 2024 before lecture</strong></p>
+<p><strong>Due Friday, April 19, 2024 by end of day</strong></p>
 <p><strong>Submit your answers via Google Classroom</strong></p>
-<section id="fix-this-graph" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="fix-this-graph">Fix this graph!</h2>
-<p>Consider the graphic below from a recent <a href="https://www.science.org/doi/10.1126/science.adi5177">article in <em>Science</em> by the Cenozoic CO2 Proxy Integration Project Consortium</a>. The data visualization attempts to show complex data about the change in atmospheric CO2 and average global temperature over the past approximately 65 million years.</p>
-<p><img src="img/cenozoic_co2.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Use the figure above to answer questions 1 &amp; 2.
+<section id="benefits-of-biodiversity" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="benefits-of-biodiversity">Benefits of biodiversity</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/hoomaluhia.jpeg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Ho’omaluhia Botanical Garden, an urban green space on O’ahu. Photo credit: Daniel Ramirez / Flickr</figcaption>
+</figure>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Hints: on the legend for the color scale, where is 0? Look closely at the tick marks of the axes. What <em>messages</em> do the authors want to communicate about these data; what are the patterns they’re trying to show? Do they achieve their goals?</p>
-<ol type="1">
-<li><p>Identify two instances in which this graphic violates the data visualization rules from Whitlock and Schluter’s textbook. There are multiple possible answers. [2 points]</p></li>
-<li><p>For each of those two violations, suggest a remedy to improve it. [2 points]</p></li>
-</ol>
 </div>
-</div>
-</section>
-<section id="interpreting-figures" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="interpreting-figures">Interpreting figures</h2>
-<p>Consider a situation in which bacterial swabs were taken from the ears and noses of 50 study subjects, and the number of swabs that showed the presence of <em>Staphylococcus</em> were measured. The table below shows the results of the measurements.</p>
+<p><a href="https://doi.org/10.1098/rsbl.2007.0149">Fuller <em>et al.</em> (2007)</a> measured the diversity of plant, bird, and butterfly species in 15 urban green spaces of varying size. They also asked 312 green-space users about their emotional “attachment” to green spaces to see if more biodiverse green space lead to greater emotional attachment from users.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table data-quarto-disable-processing="true" class="table table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> Yes </th>
-   <th style="text-align:right;"> No </th>
-  </tr>
- </thead>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 28%">
+<col style="width: 23%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Attachment</th>
+<th style="text-align: right;">Area (ha)</th>
+<th style="text-align: right;">Number of butterfly species</th>
+<th style="text-align: right;">Number of bird species</th>
+<th style="text-align: right;">ln(Number of plant species)</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> Ear </td>
-   <td style="text-align:right;"> 40 </td>
-   <td style="text-align:right;"> 10 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Nose </td>
-   <td style="text-align:right;"> 28 </td>
-   <td style="text-align:right;"> 22 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">23.8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">5.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">16.0</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">5.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.7</td>
+<td style="text-align: right;">6.9</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">4.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">5.7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">4.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.6</td>
+<td style="text-align: right;">15.0</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">5.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.6</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">4.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">12.9</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">5.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">5.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">5.6</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">5.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">4.9</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5.4</td>
+</tr>
 </tbody>
 </table>
-
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -313,81 +398,80 @@ Use the figure above to answer questions 1 &amp; 2.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Use the information in the above table to answer question 3.
+Questions 1–5 refer to the prompt and data above
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol start="3" type="1">
-<li>Which of the plots shown below (<strong>A</strong>, <strong>B</strong>, <strong>C</strong>, or <strong>D</strong>) correctly depicts the <em>Staphylococcus</em> swab data? [1 point]</li>
+<p>To get these data into <em>R</em> you can copy-paste and run this code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fuller_etal_2017 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">attachment =</span> <span class="fu">c</span>(<span class="fl">4.4</span>, <span class="fl">4.5</span>, <span class="fl">4.7</span>, <span class="fl">4.5</span>, <span class="fl">4.3</span>, <span class="fl">3.8</span>, <span class="fl">4.4</span>, <span class="fl">4.6</span>, <span class="fl">4.1</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fl">4.2</span>, <span class="fl">4.6</span>, <span class="fl">4.2</span>, <span class="fl">4.3</span>, <span class="fl">4.4</span>, <span class="fl">4.2</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">area_ha =</span> <span class="fu">c</span>(<span class="fl">23.8</span>, <span class="fl">16.0</span>, <span class="fl">6.9</span>, <span class="fl">2.3</span>, <span class="fl">5.7</span>, <span class="fl">1.2</span>, <span class="fl">1.4</span>, <span class="fl">15.0</span>, <span class="fl">3.1</span>, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                <span class="fl">3.8</span>, <span class="fl">7.6</span>, <span class="fl">12.9</span>, <span class="fl">4.0</span>, <span class="fl">5.6</span>, <span class="fl">4.9</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">butterfly =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">14</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">7</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">bird =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">18</span>, <span class="dv">8</span>, <span class="dv">17</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">22</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">16</span>, <span class="dv">7</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">ln_plant =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">5.5</span>, <span class="fl">6.4</span>, <span class="fl">4.7</span>, <span class="fl">5.3</span>, <span class="fl">4.6</span>, <span class="fl">4.5</span>, <span class="fl">5.5</span>, <span class="fl">5.2</span>, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">4.6</span>, <span class="fl">4.5</span>, <span class="fl">5.0</span>, <span class="fl">5.0</span>, <span class="fl">5.6</span>, <span class="fl">5.4</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li><p>Calculate the product-moment correlation coefficient for each of the following pairs of numerical variables:</p>
+<ol type="a">
+<li>Attachment and Number of butterfly species [1 point]</li>
+<li>Attachment and Number of bird species [1 point]</li>
+<li>Attachment and ln(Number of plant species) [1 point]</li>
+</ol></li>
+<li><p>Which measure of biodiversity is most strongly correlated with attachment? [1 point]</p></li>
+<li><p>Larger green spaces (greater area) might have more species and cause greater emotional attachment. Calculate the correlation between Area (ha) and Attachment. Round your answer to the nearest 0.01. [1 point]</p></li>
+<li><p>This question refers to Question 3. Using <code>cor.test</code>, what is the <span class="math inline">\(P\)</span>-value and 95% CI of the correlation between green space area and attachment? [1 point]</p></li>
+<li><p>This question refers to Questions 3 and 4. Calculate the <span class="math inline">\(P\)</span>-value for the correlation test “by hand” using the <em>t</em> distribution. To answer this question, paste your code into the google form. [2 point, partial credit will be given]</p>
+<p>Your code should show (at a minimum):</p>
+<ul>
+<li>how you calculate the degrees of freedom</li>
+<li>how you use one of the <em>t</em> distribution functions (either <code>dt</code>, <code>pt</code>, <code>qt</code>, or <code>rt</code>) to calculate the <em>P</em>-value</li>
+</ul></li>
 </ol>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="pset02_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
 </div>
 </div>
 </section>
-<section id="making-graphics" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="making-graphics">Making graphics</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Draw a graph by hand!
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol start="4" type="1">
-<li><p>Sketch out a histogram (with 5 bins of equal size as appropriate) showing the distribution of the following values:</p>
-<p><code>2, 3, 3, 4, 5, 7, 8, 8, 11, 11, 12, 13, 15, 15, 17, 18, 18, 23, 24, 32, 33, 34, 35, 38, 41, 42, 43, 48</code></p>
-<p>You should draw a good, honest, clear histogram BY HAND either on paper or digitally, then submit your graphic by uploading it via the Google Form [2 points].</p></li>
-</ol>
-</div>
-</div>
-<p>Now that you’ve suffered through making a graph by hand, isn’t nice to be able to use a computer for this kind of task! Now you’ll fix some <em>ggplot2</em> code to improve the quality of the below figure:</p>
+<section id="visualizing-correlation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="visualizing-correlation">Visualizing correlation</h2>
+<p>Suppose that you measure two numerical variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The figure below depicts four possible outcomes.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="pset02_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="480"></p>
+<p><img src="pset12_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="384"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>This is (approximately) the same figure of different iris species used in your textbook and that we used as an example in lecture.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Improve this figure!
+Questions 7–8 refer to the prompt and figure above
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Here is the code needed to produce the above visualization of the iris data:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note: the `iris` dataset is pre-loaded in R, we don't need to read it in</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="5" type="1">
-<li><p>[3 points] Choose two aspects of the iris data plot that you think should be improved. Then starting with the above code, add to it with additional commands to realize the improvements you’d like to make.</p>
-<p>To turn in your answer for this question simply paste your final code into the google form. Include comments in your code explaining (briefly) what you chose to improve and why, e.g.&nbsp;(these are <em>not</em> good changes to make):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Change the colors to rainbow because go bows!</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Change the points to diamonds because why not!</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, ..... </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    ....</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    ....</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    ....</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<ol start="7" type="1">
+<li><p>Which panel depicts the strongest positive association between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>? [1 point]</p>
+<ol type="a">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ol></li>
+<li><p>Which panel depicts data that likely violate the assumptions of correlation tests? [1 point]</p>
+<ol type="a">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ol></li>
 </ol>
 </div>
 </div>
@@ -631,14 +715,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./pset01.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Biostatistics basics</span></span>
+      <a href="./pset11.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Analyzing means with t-tests</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./pset03.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing data</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
