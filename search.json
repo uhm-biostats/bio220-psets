@@ -214,6 +214,6 @@
     "href": "pset12.html#visualizing-correlation",
     "title": "12  Correlation",
     "section": "Visualizing correlation",
-    "text": "Visualizing correlation\nSuppose that you measure two numerical variables \\(X\\) and \\(Y\\). The figure below depicts four possible outcomes.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions 7–8 refer to the prompt and figure above\n\n\n\n\nWhich panel depicts the strongest positive association between \\(X\\) and \\(Y\\)? [1 point]\n\n\n\n\n\n\nWhich panel depicts data that likely violate the assumptions of correlation tests? [1 point]"
+    "text": "Visualizing correlation\nSuppose that you measure two numerical variables \\(X\\) and \\(Y\\). The figure below depicts four possible outcomes.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions 6–7 refer to the prompt and figure above\n\n\n\n\nWhich panel depicts the strongest positive association between \\(X\\) and \\(Y\\)? [1 point]\n\n\n\n\n\n\nWhich panel depicts data that likely violate the assumptions of correlation tests? [1 point]"
   }
 ]
