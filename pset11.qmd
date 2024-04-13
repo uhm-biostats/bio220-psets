@@ -18,7 +18,7 @@ library(tidyr)
 
 **Submit your answers via Google Classroom**
 
-# Phenology
+## Phenology {.unnumber}
 
 According to Wikipedia, "Phenology is the study of periodic events in biological life cycles and how these are influenced by seasonal and interannual variations in climate, as well as habitat factors". Suppose that you want to test a hypothesis about the timing of a winter-flowering plant. You survey a random sample of 100 plants from a population every day of the year and record the number of plants producing their first flower on that date. The figure below shows the number of plants that first flower on a given Julian day (January 1 has Julian day of 0; December 31 has a Julian day of 365). 
 
@@ -50,7 +50,7 @@ ggplot(df, aes(x)) +
 
 :::
 
-# Banana peels and *Lotus* leaves
+## Banana peels and *Lotus* leaves {.unnumber}
 
 
 How slippery are banana peels? "Slipperiness" is measured by the coefficient of friction. A small value for the coefficient indicates less friction (more slippery) than a larger value. For reference, another slippery biological material, the water-repellent *Lotus* leaf has a coefficient of 0.05. Below are 41 measurements of the coefficient of friction of banana skins on linoleum, with the slippery side down (Mabuchi *et al.* 2012).
@@ -143,8 +143,10 @@ test_stat <- (Ybar - 0.05) / SE_Ybar
     
     Use a two-sample t-test to test the null hypothesis that the means of the two vectors are equal. To answer this question, paste the output of `t.test` into the google form
 
+:::
 
-# Distinguishing distributions
+
+## Distinguishing distributions {.unnumber}
 
 The figure plots 3 continuous probability distributions: $\text{Normal}(\mu = 0, \sigma = 2)$, $t_2$, and the $Z$ distribution). 
 
