@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Problem Sets for Intro Biostatistics - 10&nbsp; Introducing the normal distribution</title>
+<title>Problem Sets for Intro Biostatistics - 13&nbsp; Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./pset11.html" rel="next">
-<link href="./pset09.html" rel="prev">
+<link href="./pset12.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -77,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset10.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducing the normal distribution</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset13.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Regression</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -164,7 +197,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset10.html" class="sidebar-item-text sidebar-link active">
+  <a href="./pset10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducing the normal distribution</span></span></a>
   </div>
 </li>
@@ -182,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset13.html" class="sidebar-item-text sidebar-link">
+  <a href="./pset13.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
   </div>
 </li>
@@ -192,14 +225,20 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#benefits-of-biodiversity" id="toc-benefits-of-biodiversity" class="nav-link active" data-scroll-target="#benefits-of-biodiversity">Benefits of biodiversity</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducing the normal distribution</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Regression</span></h1>
 </div>
 
 
@@ -214,100 +253,209 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><strong>Due Thursday, April 4, 2024 before lecture</strong></p>
+<p><strong>Due Thursday, April 25, 2024 before class</strong></p>
 <p><strong>Submit your answers via Google Classroom</strong></p>
+<section id="benefits-of-biodiversity" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="benefits-of-biodiversity">Benefits of biodiversity</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/hoomaluhia.jpeg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Ho’omaluhia Botanical Garden, an urban green space on O’ahu. Photo credit: Daniel Ramirez / Flickr</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Just like in the problem set on correlation, we will again look at the data from <a href="https://doi.org/10.1098/rsbl.2007.0149">Fuller <em>et al.</em> (2007)</a> who measured the diversity of plant, bird, and butterfly species in 15 urban green spaces of varying size. They also asked 312 green-space users about their emotional “attachment” to green spaces to see if more biodiverse green space lead to greater emotional attachment from users.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 28%">
+<col style="width: 23%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Attachment</th>
+<th style="text-align: right;">Area (ha)</th>
+<th style="text-align: right;">Number of butterfly species</th>
+<th style="text-align: right;">Number of bird species</th>
+<th style="text-align: right;">ln(Number of plant species)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">23.8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">5.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">16.0</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">5.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.7</td>
+<td style="text-align: right;">6.9</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">4.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">5.7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">4.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.6</td>
+<td style="text-align: right;">15.0</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">5.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.6</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">4.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">12.9</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">5.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">5.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">5.6</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">5.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">4.9</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Questions 1–5 refer to the prompt and data above
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To get these data into <em>R</em> you can copy-paste and run this code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fuller_etal_2017 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">attachment =</span> <span class="fu">c</span>(<span class="fl">4.4</span>, <span class="fl">4.5</span>, <span class="fl">4.7</span>, <span class="fl">4.5</span>, <span class="fl">4.3</span>, <span class="fl">3.8</span>, <span class="fl">4.4</span>, <span class="fl">4.6</span>, <span class="fl">4.1</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fl">4.2</span>, <span class="fl">4.6</span>, <span class="fl">4.2</span>, <span class="fl">4.3</span>, <span class="fl">4.4</span>, <span class="fl">4.2</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">area_ha =</span> <span class="fu">c</span>(<span class="fl">23.8</span>, <span class="fl">16.0</span>, <span class="fl">6.9</span>, <span class="fl">2.3</span>, <span class="fl">5.7</span>, <span class="fl">1.2</span>, <span class="fl">1.4</span>, <span class="fl">15.0</span>, <span class="fl">3.1</span>, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                <span class="fl">3.8</span>, <span class="fl">7.6</span>, <span class="fl">12.9</span>, <span class="fl">4.0</span>, <span class="fl">5.6</span>, <span class="fl">4.9</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">butterfly =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">14</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">7</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">bird =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">18</span>, <span class="dv">8</span>, <span class="dv">17</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">22</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">11</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">16</span>, <span class="dv">7</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">ln_plant =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">5.5</span>, <span class="fl">6.4</span>, <span class="fl">4.7</span>, <span class="fl">5.3</span>, <span class="fl">4.6</span>, <span class="fl">4.5</span>, <span class="fl">5.5</span>, <span class="fl">5.2</span>, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">4.6</span>, <span class="fl">4.5</span>, <span class="fl">5.0</span>, <span class="fl">5.0</span>, <span class="fl">5.6</span>, <span class="fl">5.4</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ol type="1">
-<li><p>Which of the following is <strong>not</strong> a property of the normal distribution? [1 point]</p>
-<ol type="a">
-<li>It has a single mode</li>
-<li>Symmetrical around its mean</li>
-<li>Discrete distribution</li>
-<li>The probability density is highest exactly at the mean</li>
-</ol></li>
-<li><p>If <span class="math inline">\(\sigma = 0.5\)</span> and <span class="math inline">\(\mu = 2\)</span>, what is the standard error of the sample mean for <span class="math inline">\(n = 25\)</span>? [1 point]</p>
-<ol type="a">
-<li>0.02</li>
-<li>0.04</li>
-<li>0.1</li>
-<li>0.2</li>
-<li>0.4</li>
-</ol></li>
-<li><p>Consider a normal distribution with the mean and standard deviation described in question 2 above. If <span class="math inline">\(Y_i = 3\)</span>, how many standard deviations above the mean is that value? [1 point]</p>
-<ol type="a">
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>6</li>
-</ol></li>
-</ol>
-<ol start="4" type="1">
-<li><p>Consider the standard normal distribution shown below. Which of the following statements is correct about a value drawn from this distribution at random? [1 point]</p>
-<p><img src="img/standard_norm_4_properties.png" class="img-fluid" style="width:40.0%"></p>
-<ol type="a">
-<li>There is an approximately 95% chance the value is between 0 and 2.</li>
-<li>The value will be greater than 0</li>
-<li>There is a 40% chance the value will be 0</li>
-<li>There is more probability above the mean than below</li>
-</ol></li>
-<li><p>Consider a continuous value <span class="math inline">\(Y\)</span> with a population probability distribution shown below:</p></li>
+<li>If our question is “does greater bird diversity increase attachment?”, which graph below best visualizes the data in a way consistent with this question? [1 point]</li>
 </ol>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="pset10_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="288"></p>
+<p><img src="pset13_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The four figures below (A.-D.) display the distribution of sample means, <span class="math inline">\(\overline{Y}\)</span>, from 1000 hypothetical, repeated studies, each with sample sizes of <span class="math inline">\(n = 4\)</span>, <span class="math inline">\(n = 16\)</span>, <span class="math inline">\(n = 36\)</span>, or <span class="math inline">\(n = 64\)</span>. Which figure is most likely associated with sample means where <span class="math inline">\(n = 64\)</span>? [1 point]</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="pset10_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-<ol start="6" type="1">
-<li>The figures below are the QQ plots associated with the distributions of <span class="math inline">\(\overline{Y}\)</span> from question 5, but they are in random order. Which QQ-plot is associated with the histogram in panel A. from question 5? [1 point]</li>
-</ol>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="pset10_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-<ol start="7" type="1">
-<li>The four figures below (A.-D.) are 1000 random sample means <em>after</em> log-transformation <span class="math inline">\(\overline{\text{log}(Y)}\)</span>. These are the same random samples in Question 5, but in a different order and with a log-transformation applied. As in question 5, the sample sizes are <span class="math inline">\(n = 4\)</span>, <span class="math inline">\(n = 16\)</span>, <span class="math inline">\(n = 36\)</span>, and <span class="math inline">\(n = 64\)</span>. Which figure is most likely associated with sample means of log-transformed values where <span class="math inline">\(n = 16\)</span>? [1 point]</li>
-</ol>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="pset10_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-<ol start="8" type="1">
-<li><p>Which <em>R</em> function would be best suited to calculating the shaded areas under the normal curve in this figure? [1 point]</p>
-<p><img src="img/standard_norm_4_pnorm.png" class="img-fluid" style="width:40.0%"></p>
+<ol start="2" type="1">
+<li><p>If our question is “does greater bird diversity increase attachment?” what is the best null hypothesis in a linear regression framework? [1 point]</p>
 <ol type="a">
-<li><code>dnorm()</code></li>
-<li><code>pnorm()</code></li>
-<li><code>qnorm()</code></li>
-<li><code>rnorm()</code></li>
+<li>H_0: The slope of <strong>(change in bird species richness)</strong> versus <strong>(change in attachment)</strong> is 0</li>
+<li>H_0: The slope of <strong>(change in attachment)</strong> versus <strong>(change in bird species richness)</strong> is 0</li>
+<li>H_0: The slope of <strong>(change in attachment)</strong> versus <strong>(change in bird species richness)</strong> is not 0</li>
+<li>H_0: The slope of <strong>(change in bird species richness)</strong> versus <strong>(change in attachment)</strong> is less than 0</li>
 </ol></li>
-<li><p>Use the appropriate <em>R</em> functions to calculate the probability of observing a value less than -0.5 and the probability of observing a value less than 0.5 from a standard normal distribution (i.e.&nbsp;a normal distribution with mean = 0 and SD = 1). To answer this question, paste both the <em>R</em> code and the answer into the google form [1 point]</p></li>
-<li><p>From a standard normal distribution, what is the probability of observing a value <em>between</em> -0.5 and 0.5? <em>Hint: you will need to use the calculations from question 9 to answer this question</em>. To answer this question, paste both the <em>R</em> code and the answer into the google form [1 point]</p></li>
+<li><p>Calculate the estimated slope for each of the following relationships:</p>
+<ol type="a">
+<li>Attachment as predicted by Number of butterfly species [1 point]</li>
+<li>Attachment as predicted by Number of bird species [1 point]</li>
+<li>Attachment as predicted by Area [1 point]</li>
+</ol></li>
+<li><p>For the linear model predicting Attachment from Number of bird species, report the results for a <span class="math inline">\(t\)</span>-test null hypothesis test. Specifically, report the <span class="math inline">\(t\)</span>-statistic, degrees of freedom, and <span class="math inline">\(P\)</span>-value. [1 point]</p></li>
+<li><p>Use the <code>confint</code> function to calculate the 95% confidence interval for the slope of Attachment as predicted by Number of bird species. [1 point]</p></li>
+<li><p>Use <code>ggplot</code> code to show the data for Attachment as predicted by Number of bird species, the regression line for this relationship, and the 95% confidence band. Copy and paste your code into the google form to answer this question. [1 point]</p></li>
+<li><p>Based on your findings from questions 2–6, do you reject the null hypothesis? What, if any, caveats should you state when interpreting the relationship between Attachment and Number of bird species? [2 points]</p></li>
 </ol>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -545,14 +693,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./pset09.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesis tests with a <span class="math inline">\(\chi^2\)</span> null distribution</span></span>
+      <a href="./pset12.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Correlation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./pset11.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Analyzing means with t-tests</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
