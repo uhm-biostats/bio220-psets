@@ -152,18 +152,18 @@ plot_grid(gp1, gp3, gp4, gp2, nrow = 2, labels = "AUTO")
 ```
 
 ::: {.callout-tip}
-## Questions 7--8 refer to the prompt and figure above
+## Questions 6--7 refer to the prompt and figure above
 
   
 
-7. Which panel depicts the strongest positive association between $X$ and $Y$? [1 point]
+6. Which panel depicts the strongest positive association between $X$ and $Y$? [1 point]
 
     a. 
     b.
     c.
     d.
 
-8. Which panel depicts data that likely violate the assumptions of correlation tests? [1 point]
+7. Which panel depicts data that likely violate the assumptions of correlation tests? [1 point]
 
     a. 
     b.
