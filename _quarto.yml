@@ -10,18 +10,6 @@ book:
   chapters:
     - index.qmd
     - pset01.qmd
-    - pset02.qmd
-    - pset03.qmd
-    - pset04.qmd
-    - pset05.qmd
-    - pset06.qmd
-    - pset07.qmd
-    - pset08.qmd
-    - pset09.qmd
-    - pset10.qmd
-    - pset11.qmd
-    - pset12.qmd
-    - pset13.qmd
 comments:
   hypothesis: true
 
