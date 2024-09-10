@@ -14,11 +14,6 @@ library(tibble)
 ```
 
 
-**Due Thursday, Feb 8, 2024 before class**
-
-**Submit your answers via Google Classroom**
-
-
 
 ## How much caffeine is in your coffee?
 

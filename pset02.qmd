@@ -1,8 +1,5 @@
 # Graphics
 
-**Due Thursday, Jan 25, 2024 before lecture**
-
-**Submit your answers via Google Classroom**
 
 ## Fix this graph! {.unnumbered}
 

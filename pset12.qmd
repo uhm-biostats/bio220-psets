@@ -15,9 +15,6 @@ library(magrittr)
 ```
 
 
-**Due Friday, April 19, 2024 by end of day**
-
-**Submit your answers via Google Classroom**
 
 
 ## Benefits of biodiversity {.unnumbered}

@@ -11,9 +11,6 @@ library(DT)
 ```
 
 
-**Due Thursday, April 4, 2024 before lecture**
-
-**Submit your answers via Google Classroom**
 
 1. Which of the following is **not** a property of the normal distribution? [1 point]
 

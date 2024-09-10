@@ -11,10 +11,6 @@ library(DT)
 ```
 
 
-**Due Thursday, March 7, 2024 before lecture**
-
-**Submit your answers via Google Classroom**
-
 # Satellite forest mapping {.unnumbered}
 
 ```{r, fig.align = "center", out.width="100%", fig.cap="Example of using remote sensing to identify likely areas of Rapid ʻŌhiʻa Death (modified from Vaughn et. al (2018)"}

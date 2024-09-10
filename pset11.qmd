@@ -14,10 +14,6 @@ library(tidyr)
 ```
 
 
-**Due Thursday, April 11, 2024 before lecture**
-
-**Submit your answers via Google Classroom**
-
 ## Phenology {.unnumber}
 
 According to Wikipedia, "Phenology is the study of periodic events in biological life cycles and how these are influenced by seasonal and interannual variations in climate, as well as habitat factors". Suppose that you want to test a hypothesis about the timing of a winter-flowering plant. You survey a random sample of 100 plants from a population every day of the year and record the number of plants producing their first flower on that date. The figure below shows the number of plants that first flower on a given Julian day (January 1 has Julian day of 0; December 31 has a Julian day of 365). 

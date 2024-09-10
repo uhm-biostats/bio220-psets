@@ -1,8 +1,5 @@
 # Biostatistics basics
 
-**Due Thursday, Jan 18, 2024 before lecture**
-
-**Submit your answers via Google Classroom**
 
 ## Populations, estimates, sources of variation {.unnumbered}
 

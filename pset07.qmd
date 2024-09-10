@@ -11,10 +11,6 @@ library(DT)
 ```
 
 
-**Due Thursday, Feb 29, 2024 before lecture**
-
-**Submit your answers via Google Classroom**
-
 
 
 ## Identifying $H_0$ and $H_A$ {.unnumbered}

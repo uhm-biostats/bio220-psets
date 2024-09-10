@@ -15,11 +15,6 @@ library(magrittr)
 ```
 
 
-**Due Thursday, April 25, 2024 before class**
-
-**Submit your answers via Google Classroom**
-
-
 ## Benefits of biodiversity {.unnumbered}
 
 ```{r, fig.align = "center", out.width="50%", fig.cap="Ho'omaluhia Botanical Garden, an urban green space on O'ahu. Photo credit: Daniel Ramirez / Flickr"}

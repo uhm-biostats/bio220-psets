@@ -11,9 +11,6 @@ library(DT)
 ```
 
 
-**Due Thursday, March 14, 2024 before lecture**
-
-**Submit your answers via Google Classroom**
 
 ## Working with the $\chi^2$ goodness of fit test {.unnumbered}
 
