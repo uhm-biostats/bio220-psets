@@ -14,7 +14,7 @@
     "href": "pset01.html",
     "title": "1  Biostatistics basics",
     "section": "",
-    "text": "Populations, estimates, sources of variation",
+    "text": "Populations, estimates, sources of variation\nNote: you do not have to use R to complete this problem set. If you would like to use R for any of the questions, please make use of the RStudio Server app running on the Koa Server. For a reminder on how to use the RStudio Server app check out the Setup and Lab 1 sections from our lab instructions website.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Biostatistics basics</span>"
     ]
