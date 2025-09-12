@@ -1,9 +1,10 @@
 # Graphics
 
+For this problem set you *will* need to use *R*. In RStudio running on Koa in your student folder you will find an empty R script waiting for you that you can use to complete aspects of this problem set that require R.  **But please note:** you still need to turn in the problem set via the google form found in google classroom.
 
 ## Fix this graph! {.unnumbered}
 
-Consider the graphic below from a recent [article in *Science* by the Cenozoic CO2 Proxy Integration Project Consortium](https://www.science.org/doi/10.1126/science.adi5177). The data visualization attempts to show complex data about the change in atmospheric CO2 and average global temperature over the past approximately 65 million years.
+Consider the graphic below from an [article in *Science* by the Cenozoic CO2 Proxy Integration Project Consortium](https://www.science.org/doi/10.1126/science.adi5177). The data visualization attempts to show complex data about the change in atmospheric CO$_2$ and average global temperature over the past approximately 65 million years.
 
 ![](img/cenozoic_co2.png)
 
@@ -12,14 +13,14 @@ Consider the graphic below from a recent [article in *Science* by the Cenozoic C
 
 Hints: on the legend for the color scale, where is 0? Look closely at the tick marks of the axes. What *messages* do the authors want to communicate about these data; what are the patterns they're trying to show?  Do they achieve their goals?
 
-1. Identify two instances in which this graphic violates the data visualization rules from Whitlock and Schluter's textbook. There are multiple possible answers. [2 points]
+1. Identify two instances in which this graphic deviates from the best practices for data visualization rules that we covered in lecture. There are multiple possible answers. [2 points]
 
-2. For each of those two violations, suggest a remedy to improve it. [2 points]
+2. For each of those two deviations from best practices, suggest a remedy to improve the visualization. [2 points]
 :::
 
 ## Interpreting figures {.unnumbered}
 
-Consider a situation in which bacterial swabs were taken from the ears and noses of 50 study subjects, and the number of swabs that showed the presence of *Staphylococcus* were measured. The table below shows the results of the measurements. 
+Consider a situation in which bacterial swabs were taken from the ears and noses of 50 study subjects, and the number of swabs that showed or did not show the presence of *Staphylococcus* were recorded. The table below shows the results of the measurements. 
 
 ```{r, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE}
 library(dplyr)
@@ -112,39 +113,49 @@ ggplot(data = dfAll) +
 
 :::
 
-Now that you've suffered through making a graph by hand, isn't nice to be able to use a computer for this kind of task!  Now you'll fix some *ggplot2* code to improve the quality of the below figure:
+Now you'll fix some *ggplot2* code to improve the quality of the below figure:
 
 ```{r, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, fig.width = 5, fig.align = 'center', fig.height = 4}
 
-ggplot(iris, aes(Sepal.Length, Petal.Length, color = Species)) +
+library(palmerpenguins)
+
+ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm,
+                     color = species)) +
     geom_point()
 ```
 
-This is (approximately) the same figure of different iris species used in your textbook and that we used as an example in lecture.
+This is a *similar* figure to one we have thought about in lecture. In lecture we looked at bird body mass and bird wing length for non-native species in Hawaiʻi. This figure shows body mass and flipper (aka wing) length for three species of penguins.
 
 :::  {.callout-tip}
 ## Improve this figure!
 
-Here is the code needed to produce the above visualization of the iris data:
+Here is the code needed to produce the above visualization of the penguin data:
 
 ```{r, echo = TRUE, eval = FALSE}
+library(ggplot2)
 
-# note: the `iris` dataset is pre-loaded in R, we don't need to read it in
-ggplot(iris, aes(Sepal.Length, Petal.Length, color = Species)) +
+# note: the `penguin` dataset we need is made available to us via the 
+# `palmerpenguins` package
+library(palmerpenguins)
+
+ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm,
+                     color = species)) +
     geom_point()
 ```
 
-5. [3 points] Choose two aspects of the iris data plot that you think should be improved. Then starting with the above code, add to it with additional commands to realize the improvements you'd like to make.
+5. [3 points] Choose two aspects of the penguins data plot that you think should be improved. Then starting with the above code, add to it with additional commands to realize the improvements you'd like to make.
 
-    To turn in your answer for this question simply paste your final code into the google form. Include comments in your code explaining (briefly) what you chose to improve and why, e.g. (these are *not* good changes to make):
+    To turn in your answer for this question simply paste your final code into the google form. Include comments in your code explaining (briefly) what you chose to improve and why, e.g.:
     
     ```r
     # 1. Change the colors to rainbow because go bows!
     # 2. Change the points to diamonds because why not!
     
-    ggplot(iris, ..... 
+    ggplot(penguins, ..... 
         ....
         ....
         ....
     ```
+    
+    (note: these are *not* good changes to make)
 :::

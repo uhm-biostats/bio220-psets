@@ -8,7 +8,7 @@ book:
   chapters:
     - index.qmd
     - pset01.qmd
-    # - pset02.qmd
+    - pset02.qmd
     # - pset03.qmd
     # - pset04.qmd
     # - pset06.qmd

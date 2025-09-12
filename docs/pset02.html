@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Problem Sets for Intro Biostatistics</title>
+<title>2&nbsp; Graphics – Problem Sets for Intro Biostatistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./pset01.html" rel="next">
+<link href="./pset01.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,7 +107,38 @@ ul.task-list li input[type="checkbox"] {
     document.body.classList.add('hypothesis-enabled');
   });
 </script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -86,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welina mai!</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pset02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -113,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welina mai!</span></a>
   </div>
 </li>
@@ -125,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pset02.html" class="sidebar-item-text sidebar-link">
+  <a href="./pset02.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphics</span></span></a>
   </div>
 </li>
@@ -139,7 +204,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welina-mai" id="toc-welina-mai" class="nav-link active" data-scroll-target="#welina-mai">Welina mai!</a></li>
+  <li><a href="#fix-this-graph" id="toc-fix-this-graph" class="nav-link active" data-scroll-target="#fix-this-graph">Fix this graph!</a></li>
+  <li><a href="#interpreting-figures" id="toc-interpreting-figures" class="nav-link" data-scroll-target="#interpreting-figures">Interpreting figures</a></li>
+  <li><a href="#making-graphics" id="toc-making-graphics" class="nav-link" data-scroll-target="#making-graphics">Making graphics</a></li>
   </ul>
 </nav>
     </div>
@@ -148,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Problem Sets for Intro Biostatistics</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphics</span></h1>
 </div>
 
 
@@ -165,9 +232,150 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welina-mai" class="level1 unnumbered">
-<h1 class="unnumbered">Welina mai!</h1>
-<p>Here you will find Problem Sets for BIOL 220 at UH Mānoa. Please be sure to submit you answers via Google Classroom!</p>
+<p>For this problem set you <em>will</em> need to use <em>R</em>. In RStudio running on Koa in your student folder you will find an empty R script waiting for you that you can use to complete aspects of this problem set that require R. <strong>But please note:</strong> you still need to turn in the problem set via the google form found in google classroom.</p>
+<section id="fix-this-graph" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="fix-this-graph">Fix this graph!</h2>
+<p>Consider the graphic below from an <a href="https://www.science.org/doi/10.1126/science.adi5177">article in <em>Science</em> by the Cenozoic CO2 Proxy Integration Project Consortium</a>. The data visualization attempts to show complex data about the change in atmospheric CO<span class="math inline">\(_2\)</span> and average global temperature over the past approximately 65 million years.</p>
+<p><img src="img/cenozoic_co2.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Use the figure above to answer questions 1 &amp; 2.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hints: on the legend for the color scale, where is 0? Look closely at the tick marks of the axes. What <em>messages</em> do the authors want to communicate about these data; what are the patterns they’re trying to show? Do they achieve their goals?</p>
+<ol type="1">
+<li><p>Identify two instances in which this graphic deviates from the best practices for data visualization rules that we covered in lecture. There are multiple possible answers. [2 points]</p></li>
+<li><p>For each of those two deviations from best practices, suggest a remedy to improve the visualization. [2 points]</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="interpreting-figures" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="interpreting-figures">Interpreting figures</h2>
+<p>Consider a situation in which bacterial swabs were taken from the ears and noses of 50 study subjects, and the number of swabs that showed or did not show the presence of <em>Staphylococcus</em> were recorded. The table below shows the results of the measurements.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-hover caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Yes</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">No</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ear</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nose</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">22</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Use the information in the above table to answer question 3.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol start="3" type="1">
+<li>Which of the plots shown below (<strong>A</strong>, <strong>B</strong>, <strong>C</strong>, or <strong>D</strong>) correctly depicts the <em>Staphylococcus</em> swab data? [1 point]</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pset02_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="making-graphics" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="making-graphics">Making graphics</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Draw a graph by hand!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol start="4" type="1">
+<li><p>Sketch out a histogram (with 5 bins of equal size as appropriate) showing the distribution of the following values:</p>
+<p><code>2, 3, 3, 4, 5, 7, 8, 8, 11, 11, 12, 13, 15, 15, 17, 18, 18, 23, 24, 32, 33, 34, 35, 38, 41, 42, 43, 48</code></p>
+<p>You should draw a good, honest, clear histogram BY HAND either on paper or digitally, then submit your graphic by uploading it via the Google Form [2 points].</p></li>
+</ol>
+</div>
+</div>
+<p>Now you’ll fix some <em>ggplot2</em> code to improve the quality of the below figure:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pset02_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This is a <em>similar</em> figure to one we have thought about in lecture. In lecture we looked at bird body mass and bird wing length for non-native species in Hawaiʻi. This figure shows body mass and flipper (aka wing) length for three species of penguins.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Improve this figure!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here is the code needed to produce the above visualization of the penguin data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># note: the `penguin` dataset we need is made available to us via the </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># `palmerpenguins` package</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> flipper_length_mm,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li><p>[3 points] Choose two aspects of the penguins data plot that you think should be improved. Then starting with the above code, add to it with additional commands to realize the improvements you’d like to make.</p>
+<p>To turn in your answer for this question simply paste your final code into the google form. Include comments in your code explaining (briefly) what you chose to improve and why, e.g.:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Change the colors to rainbow because go bows!</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Change the points to diamonds because why not!</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, ..... </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    ....</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    ....</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    ....</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(note: these are <em>not</em> good changes to make)</p></li>
+</ol>
+</div>
+</div>
 
 
 </section>
@@ -592,11 +800,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./pset01.html" class="pagination-link" aria-label="Biostatistics basics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Biostatistics basics</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./pset01.html" class="pagination-link" aria-label="Biostatistics basics">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Biostatistics basics</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
