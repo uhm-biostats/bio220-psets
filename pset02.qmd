@@ -1,6 +1,6 @@
 # Graphics
 
-For this problem set you *will* need to use *R*. In RStudio running on Koa in your student folder you will find an empty R script waiting for you that you can use to complete aspects of this problem set that require R.  **But please note:** you still need to turn in the problem set via the google form found in google classroom.
+For this problem set you *will* need to use *R*. In RStudio running on Koa in your student folder you will find an empty R script (called `pset_02_graphics.R`) waiting for you that you can use to complete aspects of this problem set that require R.  **But please note:** you still need to turn in the problem set via the google form found in google classroom.
 
 ## Fix this graph! {.unnumbered}
 

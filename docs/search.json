@@ -64,7 +64,7 @@
     "href": "pset02.html",
     "title": "2  Graphics",
     "section": "",
-    "text": "Fix this graph!\nFor this problem set you will need to use R. In RStudio running on Koa in your student folder you will find an empty R script waiting for you that you can use to complete aspects of this problem set that require R. But please note: you still need to turn in the problem set via the google form found in google classroom.\nConsider the graphic below from an article in Science by the Cenozoic CO2 Proxy Integration Project Consortium. The data visualization attempts to show complex data about the change in atmospheric CO\\(_2\\) and average global temperature over the past approximately 65 million years.",
+    "text": "Fix this graph!\nFor this problem set you will need to use R. In RStudio running on Koa in your student folder you will find an empty R script (called pset_02_graphics.R) waiting for you that you can use to complete aspects of this problem set that require R. But please note: you still need to turn in the problem set via the google form found in google classroom.\nConsider the graphic below from an article in Science by the Cenozoic CO2 Proxy Integration Project Consortium. The data visualization attempts to show complex data about the change in atmospheric CO\\(_2\\) and average global temperature over the past approximately 65 million years.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphics</span>"
     ]
