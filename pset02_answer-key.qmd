@@ -130,12 +130,12 @@ ggplot(data = dfAll) +
           title = element_text(size = 20, face = "bold"))
 ```
 
-::: {.callout-note appearance="simple"}
+:::: {.callout-note appearance="simple"}
 ## Answer
 
 **A**
 
-:::
+::::
 
 :::
 
@@ -152,7 +152,7 @@ ggplot(data = dfAll) +
     You should draw a good, honest, clear histogram BY HAND either on paper or digitally, then submit your graphic by uploading it via the Google Form [2 points].
 
 
-::: {.callout-note appearance="simple"}
+:::: {.callout-note appearance="simple"}
 ## Answer
 
 ```{r echo = FALSE}
@@ -163,29 +163,37 @@ par(mar = c(3, 3, 0, 0) + 0.5)
 hist(x, xlab = "Values", main = "")
 ```
 
-:::
+::::
 
 :::
 
-Now that you've suffered through making a graph by hand, isn't nice to be able to use a computer for this kind of task!  Now you'll fix some *ggplot2* code to improve the quality of the below figure:
+Now you'll fix some *ggplot2* code to improve the quality of the below figure:
 
 ```{r, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE, fig.width = 5, fig.align = 'center', fig.height = 4}
+library(ggplot2)
+library(palmerpenguins)
 
-ggplot(iris, aes(Sepal.Length, Petal.Length, color = Species)) +
+ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm,
+                     color = species)) +
     geom_point()
 ```
 
-This is (approximately) the same figure of different iris species used in your textbook and that we used as an example in lecture.
+This is a *similar* figure to one we have thought about in lecture. In lecture we looked at bird body mass and bird wing length for non-native species in Hawaiʻi. This figure shows body mass and flipper (aka wing) length for three species of penguins.
 
 :::  {.callout-tip}
 ## Improve this figure!
 
-Here is the code needed to produce the above visualization of the iris data:
+Here is the code needed to produce the above visualization of the penguin data:
 
 ```{r, echo = TRUE, eval = FALSE}
+library(ggplot2)
 
-# note: the `iris` dataset is pre-loaded in R, we don't need to read it in
-ggplot(iris, aes(Sepal.Length, Petal.Length, color = Species)) +
+# note: the `penguin` dataset we need is made available to us via the 
+# `palmerpenguins` package
+library(palmerpenguins)
+
+ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm,
+                     color = species)) +
     geom_point()
 ```
 
@@ -202,4 +210,26 @@ ggplot(iris, aes(Sepal.Length, Petal.Length, color = Species)) +
         ....
         ....
     ```
+
+
+:::: {.callout-note appearance="simple"}
+## Possible answers
+
+```{r echo = TRUE, warning=FALSE, message=FALSE}
+# (fix1) better color scheme
+# (fix2) better axis labels
+# (fix3) declutter the graph
+# (fix4) make points more clear
+
+library(cowplot) # (fix3) this package provides one way to declutter
+ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm,
+                     color = species)) +
+    geom_point(alpha = 0.5, size = 2) + # (fix4)
+    scale_color_viridis_d() + # (fix1) 
+    xlab("Body mass (g)") + ylab("Flipper length (mm)") + # (fix2)
+    theme_cowplot() # (fix3) `theme_cowplot` from cowplot package
+```
+
+::::
+
 :::
