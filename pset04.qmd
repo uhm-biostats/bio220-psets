@@ -184,7 +184,18 @@ datatable(moli,
 ::: {.callout-tip}
 ## Use the data table on hatching and fledging success to answer questions 6--7
 
-You can copy the data by clicking the "Copy" button. After you click the copy button, go to Google Drive and create a new google sheet.  Paste the data into the google sheet and then download it as a CSV.  To do this, follow the directions in [Lab 3 Section 3.2.2 Creating a data file](https://uhm-biostats.github.io/biol220-labs/lab03.html#creating-a-data-file). Work all the way through the steps including uploading your new data to *Posit Cloud*
+You can re-create this data frame in *R* with vectors and the `data.frame` function like this:
+
+```{r}
+#| echo: true
+#| eval: false
+
+moli <- data.frame(year = c(2004, 2005, 2006, 2007, 2008, 2009), 
+                   eggs_laid = c(30, 48, 54, 58, 62, 61), 
+                   chicks_hatched = c(20, 29, 38, 32, 48, 32), 
+                   chicks_fledged = c(18, 16, 28, 32, 38, 25))
+```
+
 
 6. From the data, what is the estimated probability of successful hatching? Round your answer to 2 decimal points [1 point]
 

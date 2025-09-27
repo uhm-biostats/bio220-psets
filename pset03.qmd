@@ -57,7 +57,7 @@ After reading into R, use those data to answer the following questions.
 
 2. What is the 95% confidence interval for the mean? Use the 2 SE rule and round your answer to 2 decimal places. Report your answer like "lower - upper". For example, if the confidence interval were -1.11 to 2.22, then I would report "-1.11, - 2.22". [2 point]
 
-3. Is the amount of caffeine in a cup of coffee relatively consistent from one vendor to another? To help answer that, calculate the standard deviation of caffeine level and round your answer to an appropriate digit. [1 point]
+3. Is the amount of caffeine in a cup of coffee relatively consistent from one vendor to another? To help answer that, calculate the standard deviation of caffeine level and round your answer to 2 decimal places. [1 point]
 
 :::
 
