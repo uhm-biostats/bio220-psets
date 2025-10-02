@@ -1,4 +1,14 @@
-# Analyzing means with t-tests
+---
+title: "BIOL 220 Problem Set 08: Analyzing means with t-tests"
+subtitle: "Answer Key"
+format:
+  pdf:
+    toc: false
+    number-sections: false
+    colorlinks: true
+---
+
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = TRUE, message = FALSE, 
@@ -13,6 +23,10 @@ library(brms)
 library(tidyr)
 ```
 
+
+**Due Thursday, April 11, 2024 before lecture**
+
+**Submit your answers via Google Classroom**
 
 ## Phenology {.unnumber}
 
@@ -44,6 +58,13 @@ ggplot(df, aes(x)) +
     c. No, because it's not possible to state a null hypothesis
     d. No, because the data are not normally distributed
 
+::: {.callout-note appearance="simple"}
+## Answer
+
+**d. No, because the data are not normally distributed**
+
+:::
+
 :::
 
 ## Banana peels and *Lotus* leaves {.unnumber}
@@ -63,10 +84,15 @@ banana_cof <- c(0.029, 0.034, 0.036, 0.037, 0.039, 0.041, 0.041,
                 0.071, 0.075, 0.078, 0.080, 0.113, 0.125)
 ```
 
-```{r, echo = FALSE, eval = FALSE}
+```{r, echo = FALSE, eval = TRUE, results = 'hide'}
 # Prepping stuff for rubric
 
-banana_cof <- c(0.029, 0.034, 0.036, 0.037, 0.039, 0.041, 0.041, 0.042, 0.043, 0.043, 0.045, 0.047, 0.047, 0.048, 0.048, 0.048, 0.053, 0.054, 0.054, 0.054, 0.055, 0.055, 0.056, 0.056, 0.057, 0.059, 0.06, 0.062, 0.062, 0.063, 0.064, 0.065, 0.069, 0.069, 0.07, 0.071, 0.075, 0.078, 0.08, 0.113, 0.125)
+banana_cof <- c(0.029, 0.034, 0.036, 0.037, 0.039, 0.041, 0.041, 
+                0.042, 0.043, 0.043, 0.045, 0.047, 0.047, 0.048, 
+                0.048, 0.048, 0.053, 0.054, 0.054, 0.054, 0.055, 
+                0.055, 0.056, 0.056, 0.057, 0.059, 0.06, 0.062, 
+                0.062, 0.063, 0.064, 0.065, 0.069, 0.069, 0.07, 
+                0.071, 0.075, 0.078, 0.080, 0.113, 0.125)
 
 # Calculate sample mean
 Ybar <- mean(banana_cof)
@@ -106,24 +132,65 @@ test_stat <- (Ybar - 0.05) / SE_Ybar
     b. $\mu = 0.025$
     c. $\mu = 1$
     d. $\mu = 0$
+    
+::: {.callout-note appearance="simple"}
+## Answer
+
+a. $\mu = 0.05$
+
+
+:::
+
 
 3. For a one-sample $t$-test, how many degrees of freedom would you use for this data set? [1]
 
+::: {.callout-note appearance="simple"}
+## Answer
+
+$df =$ `r length(banana_cof) - 1`
+
+
+:::
+
 4. Calculate the 95% confidence intervals of the mean of the coefficient of friction for the banana peel data. Report your answer rounded to the nearest 0.001 and separated by a "-", like this: 0.123-0.456. [1]
+
+::: {.callout-note appearance="simple"}
+## Answer
+
+`r round(Ybar - std_diff * SE_Ybar, 3)` - `r round(Ybar + std_diff * SE_Ybar, 3)`
+
+:::
 
 5. For a one-sample $t$-test, calculate the test statistic rounded to the nearest 0.001. [1]
 
+::: {.callout-note appearance="simple"}
+## Answer
+
+$t =$ `r round(test_stat, 3)`
+
+:::
+
+
 6. For a one-sample $t$-test, what is the $P$-value? [1]
 
-<!-- Answers based on these: -->
-<!-- t.test(df$cof, mu = 0.05) # correct -->
-<!-- t.test(df$cof, mu = 0.02) # copied from book -->
-<!-- t.test(df$cof, mu = 0) # naive -->
+::: {.callout-note appearance="simple"}
+## Answer
+
+$P =$ `r round(2 * pt(test_stat, 40, lower.tail = FALSE), 3)`
+
+:::
+
 
 
 
 7. Based on your confidence intervals and $P$-value, are banana peels significantly more slippery than *Lotus* leaves? [1]
 
+::: {.callout-note appearance="simple"}
+## Answer
+
+**No.** The 95% CI for the friction of banana peels is *higher* than the estimate for *Lotus* leaves
+
+:::
 
 8. A better test of whether banana peels are more slippery than *Lotus* leaves would be to have replicated measures of the coefficient of friction of multiple different *Lotus* leaves.
 
@@ -138,6 +205,23 @@ test_stat <- (Ybar - 0.05) / SE_Ybar
     ```
     
     Use a two-sample t-test to test the null hypothesis that the means of the two vectors are equal. To answer this question, paste the output of `t.test` into the google form
+
+::: {.callout-note appearance="simple"}
+## Answer
+
+```{r echo = FALSE}
+lotus_cof <- c(0.052, 0.062, 0.056, 0.039, 0.043, 0.046, 
+               0.046, 0.062, 0.077, 0.051, 0.048, 0.064, 
+               0.058, 0.059, 0.051, 0.023, 0.051, 0.032, 
+               0.047, 0.052, 0.066, 0.053, 0.043, 0.053, 
+               0.045, 0.057, 0.051, 0.041, 0.047, 0.041)
+```
+
+```{r echo = TRUE}
+t.test(banana_cof, lotus_cof)
+```
+
+:::
 
 :::
 
@@ -195,7 +279,21 @@ plot_grid(gp1, gp2, gp3, labels = "AUTO")
 
 9. Which figure shows the $t_2$ distribution? [1]
 
+::: {.callout-note appearance="simple"}
+## Answer
+
+C
+
+:::
+
 10. Which figure shows the $Z$ distribution? [1]
+
+::: {.callout-note appearance="simple"}
+## Answer
+
+B
+
+:::
 
 :::
 

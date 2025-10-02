@@ -1,4 +1,4 @@
-# Introducing the normal distribution
+# Regression 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = TRUE, message = FALSE, 
@@ -8,188 +8,119 @@ library(cowplot)
 library(dplyr)
 library(ggplot2)
 library(DT)
+library(tibble)
+library(brms)
+library(tidyr)
+library(magrittr)
 ```
 
 
+## Benefits of biodiversity {.unnumbered}
 
-1. Which of the following is **not** a property of the normal distribution? [1 point]
-
-    a. It has a single mode
-    b. Symmetrical around its mean
-    c. Discrete distribution
-    d. The probability density is highest exactly at the mean
-
-2. If $\sigma = 0.5$ and $\mu = 2$, what is the standard error of the sample mean for $n = 25$? [1 point]
-
-    a. 0.02
-    b. 0.04
-    d. 0.1
-    d. 0.2
-    d. 0.4
-
-3. Consider a normal distribution with the mean and standard deviation described in question 2 above. If $Y_i = 3$, how many standard deviations above the mean is that value? [1 point]
-
-    a. 1
-    b. 2
-    c. 3
-    d. 6
-
-```{r}
-df <- tibble(x = seq(-3, 3, 0.01), y = dnorm(x))
-
-g <- ggplot(df, aes(x, y)) +
-  geom_line(size = 2) +
-  xlab(expression(italic(Z))) +
-  ylab("Probability density") +
-  theme_cowplot()
-
-ggsave("img/standard_norm_4_properties.png", width = 3, height = 3)
+```{r, fig.align = "center", out.width="50%", fig.cap="Ho'omaluhia Botanical Garden, an urban green space on O'ahu. Photo credit: Daniel Ramirez / Flickr"}
+knitr::include_graphics("img/hoomaluhia.jpeg")
 ```
 
-4. Consider the standard normal distribution shown below. Which of the following statements is correct about a value drawn from this distribution at random? [1 point]
-
-    ![](img/standard_norm_4_properties.png){width=40%}
-
-    a. There is an approximately 95% chance the value is between 0 and 2.
-    b. The value will be greater than 0 
-    c. There is a 40% chance the value will be 0
-    d. There is more probability above the mean than below
-
-5. Consider a continuous value $Y$ with a population probability distribution shown below:
-
-```{r, fig.align="center", fig.width=3, fig.height=3}
-
-df <- tibble(x = seq(0, 6, 0.01), y = dlnorm(x))
-
-ggplot(df, aes(x, y)) +
-  geom_line(size = 2) +
-  xlab(expression(italic(Y))) +
-  ylab("Probability density") +
-  theme_cowplot()
-
-```
-
-The four figures below (A.-D.) display the distribution of sample means, $\overline{Y}$, from 1000 hypothetical, repeated studies, each with sample sizes of $n = 4$, $n = 16$, $n = 36$, or $n = 64$. Which figure is most likely associated with sample means where $n = 64$? [1 point]
-
-```{r, fig.align="center", fig.width=5, fig.height=5}
-
-set.seed(20210325)
-
-df1 <- tibble(group = rep(seq_len(1000), each = 4), y = rlnorm(4 * 1e3)) %>%
-  group_by(group) %>%
-  summarize(ybar = mean(y))
-
-df2 <- tibble(group = rep(seq_len(1000), each = 16), y = rlnorm(16 * 1e3)) %>%
-  group_by(group) %>%
-  summarize(ybar = mean(y))
-
-df3 <- tibble(group = rep(seq_len(1000), each = 36), y = rlnorm(36 * 1e3)) %>%
-  group_by(group) %>%
-  summarize(ybar = mean(y))
-
-df4 <- tibble(group = rep(seq_len(1000), each = 64), y = rlnorm(64 * 1e3)) %>%
-  group_by(group) %>%
-  summarize(ybar = mean(y))
-
-gp1 <- ggplot(df1, aes(ybar)) +
-  geom_histogram(fill = "tomato", binwidth = 0.2) +
-  xlab(expression(italic(bar(Y)))) +
-  xlim(0, 6) +
-  ylim(0, 310) +
-  theme_cowplot()
-
-gp2 <- gp1 %+% df2
-gp3 <- gp1 %+% df3
-gp4 <- gp1 %+% df4
-
-plot_grid(gp1, gp3, gp4, gp2, nrow = 2, labels = "AUTO")
-
-```
-
-6. The figures below are the QQ plots associated with the distributions of $\overline{Y}$ from question 5, but they are in random order. Which QQ-plot is associated with the histogram in panel A. from question 5? [1 point]
-
-```{r, fig.align="center", fig.width=5, fig.height=5}
-
-qq1 <- ggplot(df1, aes(sample = ybar)) +
-  geom_qq(color = "tomato") +
-  geom_qq_line(size = 2, alpha = 0.5) +
-  xlim(-4, 4) +
-  ylim(-2, 8) +
-  theme_cowplot()
-
-qq2 <- qq1 %+% df2
-qq3 <- qq1 %+% df3
-qq4 <- qq1 %+% df4
-
-plot_grid(qq3, qq2, qq1, qq4, nrow = 2, labels = "AUTO")
-
-```
-
-7. The four figures below (A.-D.) are 1000 random sample means *after* log-transformation $\overline{\text{log}(Y)}$. These are the same random samples in Question 5, but in a different order and with a log-transformation applied. As in question 5, the sample sizes are $n = 4$, $n = 16$, $n = 36$, and $n = 64$. Which figure is most likely associated with sample means of log-transformed values where $n = 16$? [1 point]
-
-```{r, fig.align="center", fig.width=5, fig.height=5}
-set.seed(20210325)
-
-df1 <- tibble(group = rep(seq_len(1000), each = 4), y = rlnorm(4 * 1e3)) %>%
-  group_by(group) %>%
-  summarize(ybar = mean(log(y)))
-
-df2 <- tibble(group = rep(seq_len(1000), each = 16), y = rlnorm(16 * 1e3)) %>%
-  group_by(group) %>%
-  summarize(ybar = mean(log(y)))
-
-df3 <- tibble(group = rep(seq_len(1000), each = 36), y = rlnorm(36 * 1e3)) %>%
-  group_by(group) %>%
-  summarize(ybar = mean(log(y)))
-
-df4 <- tibble(group = rep(seq_len(1000), each = 64), y = rlnorm(64 * 1e3)) %>%
-  group_by(group) %>%
-  summarize(ybar = mean(log(y)))
-
-gp1 <- ggplot(df1, aes(ybar)) +
-  geom_histogram(fill = "tomato", binwidth = 0.1) +
-  xlab(expression(bar(log(italic(Y))))) +
-  xlim(-2, 2) +
-  ylim(0, 320) +
-  theme_cowplot()
-
-gp2 <- gp1 %+% df2
-gp3 <- gp1 %+% df3
-gp4 <- gp1 %+% df4
-
-plot_grid(gp2, gp3, gp1, gp4, nrow = 2, labels = "AUTO")
-```
+Just like in the problem set on correlation, we will again look at the data from [Fuller *et al.* (2007)](https://doi.org/10.1098/rsbl.2007.0149) who measured the diversity of plant, bird, and butterfly species in 15 urban green spaces of varying size. They also asked 312 green-space users about their emotional "attachment" to green spaces to see if more biodiverse green space lead to greater emotional attachment from users.
 
 
 ```{r}
 
-df <- tibble(x = seq(-3, 3, 0.01), y = dnorm(x))
+fuller_etal_2017 <- tibble(
+    attachment = c(4.4, 4.5, 4.7, 4.5, 4.3, 3.8, 4.4, 4.6, 4.1,
+                   4.2, 4.6, 4.2, 4.3, 4.4, 4.2),
+    area_ha = c(23.8, 16.0, 6.9, 2.3, 5.7, 1.2, 1.4, 15.0, 3.1, 
+                3.8, 7.6, 12.9, 4.0, 5.6, 4.9),
+    butterfly = c(6, 14, 8, 10, 6, 5, 5, 7, 9, 5, 10, 9, 12, 11, 7),
+    bird = c(12, 18, 8, 17, 7, 4, 8, 22, 7, 4, 11, 11, 13, 16, 7),
+    ln_plant = c(5.1, 5.5, 6.4, 4.7, 5.3, 4.6, 4.5, 5.5, 5.2, 
+                 4.6, 4.5, 5.0, 5.0, 5.6, 5.4)
+)
 
-g <- ggplot(df, aes(x, y)) +
-  geom_area(data = filter(df, x < -2)) +
-  geom_area(data = filter(df, x > 2)) +
-  geom_line(size = 2) +
-  xlab(expression(italic(Y))) +
-  ylab("Probability density") +
-  theme_cowplot() +
-  theme(
-    axis.text = element_blank(),
-    axis.ticks = element_blank()
-  )
+cor_area_ha <- cor(fuller_etal_2017$attachment, fuller_etal_2017$area_ha)
+cor_butterfly <- cor(fuller_etal_2017$attachment, fuller_etal_2017$butterfly)
+cor_bird <- cor(fuller_etal_2017$attachment, fuller_etal_2017$bird)
+cor_ln_plant <- cor(fuller_etal_2017$attachment, fuller_etal_2017$ln_plant)
 
-ggsave("img/standard_norm_4_pnorm.png", width = 3, height = 3)
+df <- nrow(fuller_etal_2017) - 2
+SE_r <- sqrt((1 - cor_area_ha ^ 2) / df)
+test_stat <- cor_area_ha / SE_r
+P_value <- 2 * pt(test_stat, df = df, lower.tail = FALSE)
+
+fuller_etal_2017 %>%
+    rename(
+        Attachment = attachment,
+        `Area (ha)` = area_ha,
+        `Number of butterfly species` = butterfly,
+        `Number of bird species` = bird,
+        `ln(Number of plant species)` = ln_plant,
+    ) %>%
+    knitr::kable()
 
 ```
 
-8. Which *R* function would be best suited to calculating the shaded areas under the normal curve in this figure? [1 point]
 
-    ![](img/standard_norm_4_pnorm.png){width=40%}
-    
-    a. `dnorm()`
-    b. `pnorm()`
-    c. `qnorm()`
-    d. `rnorm()`
-    
-9. Use the appropriate *R* functions to calculate the probability of observing a value less than -0.5 and the probability of observing a value less than 0.5 from a standard normal distribution (i.e. a normal distribution with mean = 0 and SD = 1). To answer this question, paste both the *R* code and the answer into the google form [1 point]
 
-10. From a standard normal distribution, what is the probability of observing a value *between* -0.5 and 0.5? *Hint: you will need to use the calculations from question 9 to answer this question*. To answer this question, paste both the *R* code and the answer into the google form [1 point]
+::: {.callout-tip}
+## Questions 1--5 refer to the prompt and data above
+
+To get these data into *R* you can copy-paste and run this code:
+
+```{r echo = TRUE, eval = FALSE}
+fuller_etal_2017 <- data.frame(
+    attachment = c(4.4, 4.5, 4.7, 4.5, 4.3, 3.8, 4.4, 4.6, 4.1,
+                   4.2, 4.6, 4.2, 4.3, 4.4, 4.2),
+    area_ha = c(23.8, 16.0, 6.9, 2.3, 5.7, 1.2, 1.4, 15.0, 3.1, 
+                3.8, 7.6, 12.9, 4.0, 5.6, 4.9),
+    butterfly = c(6, 14, 8, 10, 6, 5, 5, 7, 9, 5, 10, 9, 12, 11, 7),
+    bird = c(12, 18, 8, 17, 7, 4, 8, 22, 7, 4, 11, 11, 13, 16, 7),
+    ln_plant = c(5.1, 5.5, 6.4, 4.7, 5.3, 4.6, 4.5, 5.5, 5.2, 
+                 4.6, 4.5, 5.0, 5.0, 5.6, 5.4)
+)
+```
+
+1. If our question is "does greater bird diversity increase attachment?", which graph below best visualizes the data in a way consistent with this question? [1 point]
+
+```{r fig.align='center'}
+gp1 <- ggplot(fuller_etal_2017, aes(attachment, bird)) +
+  geom_smooth(method = "lm") +
+  geom_point() +
+  xlab("Attachment") +
+  ylab("Number of bird species") +
+  theme_cowplot()
+
+gp2 <- ggplot(fuller_etal_2017, aes(bird, attachment)) +
+  geom_smooth(method = "lm") +
+  geom_point() +
+  ylab("Attachment") +
+  xlab("Number of bird species") +
+  theme_cowplot()
+
+plot_grid(gp1, gp2, nrow = 1, labels = "AUTO")
+```
+
+2. If our question is "does greater bird diversity increase attachment?" what is the best null hypothesis in a linear regression framework? [1 point]
+
+    a. H_0: The slope of **(change in bird species richness)** versus **(change in attachment)** is 0
+    b. H_0: The slope of **(change in attachment)** versus **(change in bird species richness)** is 0
+    c. H_0: The slope of **(change in attachment)** versus **(change in bird species richness)** is not 0
+    d. H_0: The slope of **(change in bird species richness)** versus **(change in attachment)** is less than 0
+
+3. Calculate the estimated slope for each of the following relationships:
+
+    a. Attachment as predicted by Number of butterfly species [1 point]
+    b. Attachment as predicted by Number of bird species [1 point]
+    c. Attachment as predicted by Area [1 point]
+
+4. For the linear model predicting Attachment from Number of bird species, report the results for a $t$-test null hypothesis test. Specifically, report the $t$-statistic, degrees of freedom, and $P$-value. [1 point]
+
+5. Use the `confint` function to calculate the 95% confidence interval for the slope of Attachment as predicted by Number of bird species. [1 point]
+
+6. Use `ggplot` code to show the data for Attachment as predicted by Number of bird species, the regression line for this relationship, and the 95% confidence band. Copy and paste your code into the google form to answer this question. [1 point]
+
+7. Based on your findings from questions 2--6, do you reject the null hypothesis? What, if any, caveats should you state when interpreting the relationship between Attachment and Number of bird species? [2 points]
+
+
+:::
+
+
