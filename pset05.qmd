@@ -1,139 +1,101 @@
-# 🎉 Review 🎉 coding, data, graphics
+# Null Hypothesis Significance Testing
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE, message = FALSE, 
+                      warning = FALSE)
 
 library(cowplot)
 library(dplyr)
-library(DT)
 library(ggplot2)
-library(infer)
-library(readr)
-library(tibble)
-library(palmerpenguins)
-
+library(DT)
 ```
 
 
-**Due Thursday, Feb 15, 2024 before class**
-
-**Submit your answers via Google Classroom**
 
 
-
-## Speed round (jk take your time) {.unnumbered}
-
+## Identifying $H_0$ and $H_A$ {.unnumbered}
 
 ::: {.callout-tip}
-## Plotting
+## Questions 1--3 will get you thinking about what distinguishes null and alternative hypotheses 
 
-1. Fix the code below, you're not trying to make the plot look nicer, just trying to correct errors (hint: try running it in R to see if you fixed it all the way; what type of plot should we use for these kinds of data?) [1 point]
+1. Give an appropriate null hypothesis for this alternative hypothesis [1 point]:
 
-```{r eval = FALSE}
-library(palmerpenguins)
-# library(ggplot2)
+> $H_\textrm{A}$: The mean leaf size of plants from tropical latitudes is different than the mean leaf size of plants from temperate latitudes.
 
-ggplot(penguins, 
-       aes(x = bill_depth_mm, y = bill_length_mm, 
-           color = "species")) +
-    geom_boxplot() + 
-    scale_color_viridis_c()
-```
+2. Give an appropriate alternative hypothesis for this null hypothesis [1 point]:
 
-2. Match the plot to the data type (e.g. "a. goes to iii."---that is not correct, just an example!) [1 point]
+> $H_0$: There is no difference in the mean blood concentrations of C-reactive protein (used to diagnose Crohn's disease, units: mg/dL) in patients given a diet high in broccoli sprouts compared to the control group
 
-::: columns
+3. Determine whether each hypothesis below is more appropriate as a null hypothesis or an alternative hypothesis: [1 point]
 
-:::: column
-
-a. *Response:* categorical, *Explanatory:* none
-b. *Response:* numerical, *Explanatory:* categorical
-c. *Response:* numerical, *Explanatory:* numerical
-d. *Response:* numerical, *Explanatory:* none
-
-::::
-
-:::: column
-
-i. Scatter plot
-ii. Bar plot
-iii. Box plot
-iv. Histogram 
-
-::::
+- Hypothesis: sea water temperature changes the proportion of corals that experience bleaching.
+- Hypothesis: the ratio of body mass to brain mass across mammals equals 1.
+- Hypothesis: the average number of animal species within tropical latitudes is the same as the average number of animal species outside of the tropics
+- Hypothesis: the effect of a new experimental drug called "feel better syrup" has no effect on duration of common cold symptoms
 
 :::
 
-:::
-
-
-::: {.callout-tip}
-## Estimates
-
-3. Fix this code to calculate the standard error (again, don't add to the code, just correct it) [2 points]
-
-```{r eval = FALSE}
-gentoo <- subset(penguins, penguins$species == "Gentoo")
-
-y <- gentoo$flipper_length_mm
-y <- y[!is.na(y)]
-
-n <- nrow(y)
-
-ybar <- mean(y)
-
-s2 <- 1 / n * sum((y - ybar))
-s <- sqrt(s2)
-
-se <- 1 / sqrt(n) * s
-se
-
-# compare to the below calculation (this code is correct)
-sd(y, na.rm = TRUE) / sqrt(n)
-```
-
-:::
-
-
-## Putting it all together {.unnumbered}
-
-Let's keep using the `penguins` data.  Here we'll compare the data from Gentoo and Adelie penguin flippers.
-
-To start, I'll show you a faceted histogram (of an *exploratory* quality) of flipper lengths across these two species:
-
-```{r}
-ggplot(subset(penguins, penguins$species != "Chinstrap"), 
-              aes(x = flipper_length_mm, fill = species)) +
-    geom_histogram() +
-    facet_grid(rows = vars(species)) +
-    theme(legend.position = "none")
-```
-
+## P-values, sample size, and whether the null is really true {.unnumbered}
 
 ::: {.callout-tip}
-## Use the `penguins` data (and refer to the above graph) to answer questions 4--6
+## Pay close attention to the details in questions 4--5!
 
-4. Make a boxplot of the Adelie and Gentoo penguins 
-    a. use *ggplot* code to make the plot and upload the image to Google Forms (e.g. take a screenshot and upload that) [1 point]
-    b. what does the boxplot tell you that the histrogram does not; what does the histogram tell you that the boxplot does not? [1 point]
+4. Consider a clinical trial of a new drug to treat Alzheimer's. Half the participants are given the drug; half are given a placebo control. Treatments are assigned at random. Assuming that the drug actually has no effect, which of the following statements is true? [1 point]
 
-5. Now we will look numerically at the spread of these the data on these two species
-    a. calculate the mean and standard deviation of flipper length of both species, report your answer with 1 decimal place [1 point]
-    b. calculate the standard errors of the means for both species, again, 1 decimal place [1 point]
-
-6. Explain the standard deviations and standard errors
-    a. which species has the bigger standard deviation, which has the bigger standard error? Based on the graphs of the data, did you expect this answer or were you surprised?  Why or why not? [1 point]
-    b. Compare the standard **error** of the Gentoo versus the Adelie, what is more likely to explain why one is larger than the other: the sample sizes for the two different species, or the standard deviations for the two different species? Explain why you picked your answer [1 point]
+    a. A clinical trial with a larger sample is **more** likely than a smaller trial to get a result with $p < 0.05$
+    b. A clinical trial with a larger sample is **less** likely than a smaller trial to get a result with $p < 0.05$
+    c. A clinical trial with a larger sample is **equally** likely than a smaller trial to get a result with $p < 0.05$
+    d. None of the above are true
     
+
+5. Consider a clinical trial of a new drug to treat Alzheimer's. Half the participants are given the drug; half are given a placebo control. Treatments are assigned at random. Assuming that the drug *actually does reduce the chance of developing Alzheimer's*, which of the following statements is true? [1 point]
+
+    a. A clinical trial with a larger sample is **more** likely than a smaller trial to get a result with $p < 0.05$
+    b. A clinical trial with a larger sample is **less** likely than a smaller trial to get a result with $p < 0.05$
+    c. A clinical trial with a larger sample is **equally** likely than a smaller trial to get a result with $p < 0.05$
+    d. None of the above are true
+
 :::
 
-```{r, eval = FALSE, echo = FALSE}
-dat <- subset(penguins, penguins$species != "Chinstrap" & 
-                  !is.na(penguins$flipper_length_mm))
+## Hawaiian *Tetragnatha* spiders {.unnumbered}
 
-dat <- group_by(dat, species)
-
-dat <- summarize(dat, sd = sd(flipper_length_mm), n = n())
-
-dat$sd / sqrt(dat$n)
+```{r, fig.align = "center", out.width="50%", fig.cap="Two species of endemic Hawaiian *Tetragnatha* spiders"}
+knitr::include_graphics("img/tetragnatha.png")
 ```
+
+One very cool group of spiders in Hawaiʻi are the *Tetragnatha* spiders, which are an example of adaptive radiation.  On each island, these spiders re-evolved distinctive color morphs that use different strategies to avoid depredation and catch prey. The "green" color morph is especially pretty. On Oʻahu there are two green morphs, one is *T. tantalus* shown above. On Hawaiʻi Island there is only one green morph--*T. brevignatha*.  I used to spend a lot of time up in the ʻuka catching and identifying spiders, but being behind the computer all the time, I worry I lost those skills. A friend gave me a challenge: they showed me 10 pictures of *Tetragnatha* and told me 5 were *T. tantalus*, and 5 were *T. brevignatha*. My test was to correctly guess which was which. Don't be fooled! Not all *T. brevignatha* have the red spot (some are all green), and some *T. tantalus* have a red spot of their own!
+
+Out of 10 trials, I got 7 right. My "scientific" hypothesis is that I still know how to ID spiders, but statistically, is that really supported by these data?
+
+::: {callout.tip}
+## Use the data from this totally true, not made up, spider identification test to answer questions 6--10.
+
+
+6. What is the most appropriate test statistic for this "study" and what is its numerical value? [1 point] 
+
+7. What is the most appropriate null hypothesis? [1 point]
+
+8. The figure below shows the null distribution for the number of correct guesses. Use this figure to calculate the p-value (assume a two-tailed alternative hypothesis). Round your answer to the nearest 0.001. [1 point]
+
+```{r, fecundity, fig.align='center', fig.width=6, fig.height=4}
+
+df <- data.frame(x = 0:10, y = round(dbinom(0:10, 10, 0.5), 3))
+
+ggplot(df, aes(x, y, label = y)) +
+    geom_col(fill = "tomato") +
+    geom_text(vjust = -1) +
+    scale_x_continuous(breaks = 0:10, labels = 0:10) +
+    scale_y_continuous(limits = c(0, 0.3)) +
+    xlab("Number of correct guesses") +
+    ylab("Probability") +
+    theme_cowplot()
+
+```
+
+9. Based on this hypothesis test and a significance level of $\alpha = 0.05$, do you reject the null? What does that mean for how confident I should feel with my spider identification abilities? [1 point]
+
+10. Let's suppose, for my pride (!), that the null hypothesis is not true, has an error occurred in our hypothesis test? If so what kind of error? [1 point]
+
+:::
+
+
