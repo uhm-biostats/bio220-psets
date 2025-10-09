@@ -1,5 +1,5 @@
 ---
-title: "BIOL 220 Problem Set 13: Regression"
+title: "BIOL 220 Problem Set 10: Regression"
 subtitle: "Answer Key"
 format:
   pdf:
