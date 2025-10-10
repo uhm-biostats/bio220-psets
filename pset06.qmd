@@ -17,17 +17,17 @@ library(DT)
 knitr::include_graphics("img/rod.png")
 ```
 
-Rapid ʻŌhiʻa Death (ROD) is a devastating pathogen affecting native ʻōhiʻa forests in Hawaiʻi. Much work has been done to try to document its spread. [Vaughn et al. (2018)](https://www.mdpi.com/2072-4292/10/4/502) used remote sensing images from 2017 to detect areas of potential ROD. Remote sensing uses fancy cameras attached to low-flying airplanes to capture many different wavelengths of light. The wavelengths are then analyzed to classify areas as likely ROD or not. The image above is from the Kohala Mountains on the Island of Hawaiʻi and shows 28.67% ROD in forested areas. Suppose Vaughn et al. were able to re-survey this same area now in 2024 and calculate the percentage of ROD as 34.78%. 
+Rapid ʻŌhiʻa Death (ROD) is a devastating pathogen affecting native ʻōhiʻa forests in Hawaiʻi. Much work has been done to try to document its spread. [Vaughn et al. (2018)](https://www.mdpi.com/2072-4292/10/4/502) used remote sensing images from 2017 to detect areas of potential ROD. Remote sensing uses fancy cameras attached to low-flying airplanes to capture many different wavelengths of light. The wavelengths are then analyzed to classify areas as likely ROD or not. The image above is from the Kohala Mountains on the Island of Hawaiʻi and shows 28.67% ROD in forested areas. Suppose Vaughn et al. were able to re-survey this same area now in 2025 and calculate the percentage of ROD as 34.78%. 
 
 ::: {.callout-tip}
 ## Questions 1--2 refer to the prompt above.
 
-1. True or false: given the percentage data, would a binomial test be an appropriate method to test the hypothesis that ROD area has increased over time? [1 point]
+1. True or false: given the percentage data **alone**, would a binomial test be an appropriate method to test the hypothesis that ROD area has increased over time? [1 point]
 
     - TRUE
     - FALSE
 
-2. Instead, imagine you did a "boots on the ground" survey in 2024 of individual trees in the Kohala Mountains and recorded whether each tree was infected with ROD or not. Imagine you find that out of 1000 trees you surveyed, 34.8% are infected. In this situation, would a binomial test be an appropriate method to test the hypothesis that ROD prevalence has increased compared to the 28.67% value from 2017 (true or false)? [1 point]
+2. Instead, imagine you did a "boots on the ground" survey in 2024 of individual trees in the Kohala Mountains and recorded whether each tree was infected with ROD or not. Imagine you find that out of 1000 trees you surveyed, 348 are infected. In this situation, would a binomial test be an appropriate method to test the hypothesis that ROD prevalence has increased compared to the 28.67% value from 2017 (true or false)? [1 point]
 
     - TRUE
     - FALSE
@@ -40,7 +40,7 @@ Rapid ʻŌhiʻa Death (ROD) is a devastating pathogen affecting native ʻōhiʻa
 knitr::include_graphics("img/Drosophila_picticornis.jpg")
 ```
 
-Hawaiian *Drosophila* (yes that famous genus of fruit fly) are super diverse and super awesome. They speciate like crazy due, in part, to reproductive isolation. When studying reproductive isolation between species, scientists will often allow different species to mate then count the viability of hybrid offspring. Suppose that you are measuring the viability of hybrid eggs laid by a female fruit fly. This female fruit fly will lay eggs over a period of one week, but she needs to be transferred to a fresh vial of food (yeast) every day. After you transfer her to a new vial, you count the number of eggs she laid and record the number of viable eggs. Here are your data:
+Hawaiian *Drosophila* (yes that famous genus of fruit fly) are super diverse and super awesome. They speciate like crazy due, in part, to reproductive isolation. When studying reproductive isolation between species, scientists will often allow different species to mate then count the viability of hybrid offspring. Suppose that you are measuring the viability of hybrid eggs laid by a fruit fly. This fruit fly will lay eggs over a period of one week, but the fly needs to be transferred to a fresh vial of food (yeast) every day. After you transfer the fly to a new vial, you count the number of eggs laid and record the number of viable eggs. Here are your data:
 
  Day | Eggs laid | Viable offspring
 :---:|:---------:|:----------------:
@@ -83,10 +83,10 @@ Hawaiian *Drosophila* (yes that famous genus of fruit fly) are super diverse and
     - $H_0: p = 0.9$
     - $H_0: p = 1$
 
-6. You estimate that the proportion of viable hybrid offspring from this female is $\hat{p} = `r round(31/59, 2)`$ and the 95% confidence interval for $\hat{p}$ is 0.40--0.65. Based on these results, would you conclude that hybrid offspring from this fly are less viable than offspring from typical crosses within species? [1 point]
+6. You estimate that the proportion of viable hybrid offspring from this fly is $\hat{p} = `r round(31/59, 2)`$ and the 95% confidence interval for $\hat{p}$ is 0.40--0.65. Based on these results, would you conclude that hybrid offspring from this fly are less viable than offspring from typical crosses within species? [1 point]
 
-    a. No, because $P > 0.05$
-    b. Yes, because $P < 0.05$
+    a. No, because $P-value > 0.05$
+    b. Yes, because $P-value < 0.05$
     c. No, because $p = 0.9$, the typical proportion of viable offspring for within species crosses, is well outside the 95% confidence intervals 
     d. Yes, because $p = 0.9$, the typical proportion of viable offspring for within species crosses, is well outside the 95% confidence intervals 
 
