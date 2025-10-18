@@ -38,9 +38,9 @@ Suppose you have data on the frequencies of three different groups (you can imag
 
 # Diabetes prevelance in Hawaiʻi {.unnumbered}
 
-[Grandinetti et al. (2007)](https://pubmed.ncbi.nlm.nih.gov/17682354/) studied prevalence of diabetes in North Kōhala on the Island of Hawaiʻi. They found significant disparities in diabetes prevalence across ethnic groups, with Native Hawaiian and Asian individuals at higher risk of diabetes. This increased risk could not be explained by shared lifestyle risk factors, indicating that other, unmeasured, drivers were likely at play (side note from Andy: perhaps colonialism).
+[Grandinetti et al. (2007)](https://pubmed.ncbi.nlm.nih.gov/17682354/) studied prevalence of diabetes in North Kōhala on the Island of Hawaiʻi. They found significant disparities in diabetes prevalence across ethnic groups, with Native Hawaiian and Asian individuals at higher risk of diabetes. This increased risk could not be explained by shared lifestyle risk factors, indicating that other, unmeasured, drivers were likely at play (side note from Andy: cough cough colonialism).
 
-The table below summarizes the results of Grandinetti et al. (2007) with respect to diabetes prevelance by ethnic group.
+The table below summarizes the results of Grandinetti et al. (2007) with respect to diabetes prevalence by ethnic group.
 
 
 ```{r}
